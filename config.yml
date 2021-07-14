@@ -1,0 +1,38 @@
+#Origen del directorio donde se encuentra el repositorio local u origen de los File.
+origin: 
+      repositoryDir:  C:\Users\JAVIER\Desktop\
+      cssDir:
+      jsDir:
+      htmlDir:
+      imgDir:
+      docDir:
+
+#Espacio de trabajo donde se va a trabajar, si no existiera el directorio se crea.
+workspaces:
+      -  C:\Users\JAVIER\Desktop\dir-loc
+      -  C:\Users\JAVIER\Desktop\dir-loc2
+
+
+#A la hora de escribir comandos se guardaran N números de commandos con éxito realizados durante la sesión.
+#Un valor negativo o 0 equivale a no guardar ningun valor.
+commandsSessionStorage: 10
+
+#Tiempo en segundos, duración desde que la app pierda el foco hasta que entre en modo sleeping. 
+#Un valor negativo o 0 equivale a no evento sleeping.
+age: 10
+
+#Establecer tema de la app -- Valores RGB(0-250)-Alpha(0.0 - 1.0) ó hex (#ffffff) 
+#De establecer hex será tomado en consideración por encima de rgba.
+theme:
+      bgColor:
+            hex: #212F3D 
+            r:
+            g:
+            b:
+            a:
+      fgColor:
+            hex:
+            r:
+            g:
+            b:
+            a:   

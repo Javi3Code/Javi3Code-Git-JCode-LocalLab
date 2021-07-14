@@ -1,0 +1,44 @@
+taskname: WP-2777
+persist: true
+taskfiles: 
+    html:
+      - genericPath:
+        htmlFiles:
+          - localeRef: es_ES
+            files: 
+              -
+              -
+              -
+              -
+          - localeRef: all
+            files: 
+              -
+              -
+              -
+              -
+    css:
+      - genericPath:
+        cssFiles:
+            -
+            -
+            -
+    js:
+      - genericPath:
+        jsFiles:
+            -
+            -
+            -
+    img:
+      - genericPath:
+        imgFiles:
+            -
+            -
+            -
+            -
+    doc:
+      -genericPath:
+       docFiles:
+            -
+            -
+    
+      
