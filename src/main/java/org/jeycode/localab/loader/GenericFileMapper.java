@@ -26,7 +26,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
  *
  */
 
-public interface GenericFileMapper
+public interface GenericFileMapper <R>
 {
 
       String CONFIGMAPPER = "configmapper";
@@ -54,9 +54,10 @@ public interface GenericFileMapper
        * @throws JsonMappingException
        * @throws IOException
        */
-      default YMLObj loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
+      @SuppressWarnings("unchecked")
+      default R loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
       {
-            return objMapper.readValue(file,getClassObjToReturn());
+            return (R)objMapper.readValue(file,getClassObjToReturn());
       }
 
       /**

@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component(TASKFILEMAPPER)
-public class TaskFileMapper implements GenericFileMapper
+public class TaskFileMapper implements GenericFileMapper<TaskFile>
 {
 
       @Override

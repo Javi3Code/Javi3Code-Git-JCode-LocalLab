@@ -10,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +25,7 @@ public class JCodeLocalLabApplication
       {
             SpringApplication.run(JCodeLocalLabApplication.class,args);
 
-            ConfigMapper configMapper = new ConfigMapper(new ObjectMapper(new YAMLFactory()));
+            ConfigMapper configMapper = new ConfigMapper();
             AppConfigObj config = configMapper.loadYmlFile(configFile);
             System.out.println(config);
 

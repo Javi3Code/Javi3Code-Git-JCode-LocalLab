@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component(value = CONFIGMAPPER)
-public class ConfigMapper implements GenericFileMapper
+public class ConfigMapper implements GenericFileMapper<AppConfigObj>
 {
 
       @Override
