@@ -10,7 +10,7 @@ taskfiles:
               -
               -
               -
-          - localeRef: all
+          - localeRef: ALL
             files: 
               -
               -

@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Theme
 {
 
-      private AppColor bgColor,fgColor = new AppColor();
+      private AppColor bgColor,fgColor;
 }

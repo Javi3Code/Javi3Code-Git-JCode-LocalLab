@@ -1,4 +1,4 @@
-package org.jeycode.localab.wrappermodel.filemodel;
+package org.jeycode.localab.wrappermodel.filemodeldto;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GenericFrontFile
+public class GenericFrontFileDto
 {
 
       private String genericPath;

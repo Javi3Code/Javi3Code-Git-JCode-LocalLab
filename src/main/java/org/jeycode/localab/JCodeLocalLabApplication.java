@@ -1,15 +1,7 @@
 package org.jeycode.localab;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.jeycode.localab.configmodel.AppConfigObj;
-import org.jeycode.localab.loader.ConfigMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,18 +10,25 @@ import lombok.RequiredArgsConstructor;
 public class JCodeLocalLabApplication
 {
 
-      private static final File configFile = new File("config.yml");
-      final ConfigMapper configMapper;
+//      private final YmlObjTemplates templates;
 
-      public static void main(String[] args) throws JsonParseException,JsonMappingException,IOException
+      public static void main(String[] args)
       {
             SpringApplication.run(JCodeLocalLabApplication.class,args);
 
-            ConfigMapper configMapper = new ConfigMapper();
-            AppConfigObj config = configMapper.loadYmlFile(configFile);
-            System.out.println(config);
-
-            configMapper.writeYmlFile(new File("ymlsample.yml"),new AppConfigObj());
       }
+
+      // Ejemplo para serializar o deserializar los yml usados en la app
+//      @Bean
+//      public CommandLineRunner commandLineRunner(@Autowired JCodeLocalLabApplication app)
+//      {
+//            return args->
+//                  {
+//                        app.templates.exportAppConfigYmlTemplate();
+//                        app.templates.exportConcreteTaskYmlTemplate();
+//                        ConcreteTaskFileMapper mapper = new ConcreteTaskFileMapper();
+//                        System.out.println(mapper.loadYmlFile(new File("concretetasksample.yml")));
+//                  };
+//      }
 
 }

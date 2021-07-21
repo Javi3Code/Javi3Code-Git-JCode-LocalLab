@@ -25,7 +25,7 @@ age: 10
 #De establecer hex será tomado en consideración por encima de rgba.
 theme:
       bgColor:
-            hex: #212F3D 
+            hex: #212F3D
             r:
             g:
             b:

@@ -3,7 +3,7 @@ package org.jeycode.localab.loader;
 import java.io.File;
 import java.io.IOException;
 
-import org.jeycode.localab.utils.YMLObj;
+import org.jeycode.localab.wrappermodel.YMLObj;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -17,7 +17,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
  * métodos default que ya ofrecen la funcionalidad necesaria para el mapeo.
  * 
  * 
- * @see TaskFileMapper
+ * @see ConcreteTaskFileMapper
  * @see ConfigMapper
  * 
  * @author Javier Pérez Alonso
@@ -26,11 +26,11 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
  *
  */
 
-public interface GenericFileMapper <R>
+public interface GenericFileMapper
 {
 
       String CONFIGMAPPER = "configmapper";
-      String TASKFILEMAPPER = "taskfilemapper";
+      String CONCRETETASKFILEMAPPER = "concretetaskfilemapper";
 
       ObjectMapper objMapper = new ObjectMapper(new YAMLFactory());
 
@@ -54,10 +54,9 @@ public interface GenericFileMapper <R>
        * @throws JsonMappingException
        * @throws IOException
        */
-      @SuppressWarnings("unchecked")
-      default R loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
+      default YMLObj loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
       {
-            return (R)objMapper.readValue(file,getClassObjToReturn());
+            return objMapper.readValue(file,getClassObjToReturn());
       }
 
       /**
