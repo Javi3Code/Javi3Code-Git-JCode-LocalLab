@@ -1,8 +1,8 @@
 package org.jeycode.localab.wrappermodel;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class ConcreteTask
 {
 
@@ -20,7 +21,6 @@ public class ConcreteTask
       private String taskname;
       @Transient
       private boolean persist;
-      @OneToOne(mappedBy = "taskFilesId", cascade = CascadeType.ALL)
-      @JoinColumn
+      @OneToOne(mappedBy = "concreteTask", cascade = CascadeType.ALL)
       private TaskFiles taskfiles;
 }

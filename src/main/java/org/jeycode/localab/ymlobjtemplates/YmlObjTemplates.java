@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.loader.GenericFileMapper;
-import org.jeycode.localab.wrappermodel.ConcreteTask;
+import org.jeycode.localab.wrappermodel.dto.ConcreteTaskDto;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -22,7 +22,7 @@ public class YmlObjTemplates
 //      @Autowired //No uso esto por @Primary en ConfigMapper
       private final GenericFileMapper mapper;
       private final AppConfigObj appConfigObj;
-      private final ConcreteTask concreteTaskObj;
+      private final ConcreteTaskDto concreteTaskObj;
 
       public void exportAppConfigYmlTemplate() throws JsonGenerationException,JsonMappingException,IOException
       {

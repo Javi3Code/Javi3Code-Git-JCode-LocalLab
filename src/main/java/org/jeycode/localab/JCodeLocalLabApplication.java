@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 public class JCodeLocalLabApplication
 {
 
-//      private final YmlObjTemplates templates;
+//      private final YmlObjTemplates templates; 
 
       public static void main(String[] args)
       {
@@ -18,7 +18,7 @@ public class JCodeLocalLabApplication
 
       }
 
-      // Ejemplo para serializar o deserializar los yml usados en la app
+//       Ejemplo para serializar o deserializar los yml usados en la app
 //      @Bean
 //      public CommandLineRunner commandLineRunner(@Autowired JCodeLocalLabApplication app)
 //      {
