@@ -1,4 +1,4 @@
-package org.jeycode.localab.config.theme;
+package org.jeycode.localab.configmodel.thememodel;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
