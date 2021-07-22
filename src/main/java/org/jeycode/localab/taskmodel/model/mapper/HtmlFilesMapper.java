@@ -1,7 +1,7 @@
 package org.jeycode.localab.taskmodel.model.mapper;
 
-import org.jeycode.localab.taskmodel.model.filemodel.HtmlFiles;
-import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.taskmodel.model.filemodel.HtmlFile;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFileDto;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
@@ -10,8 +10,8 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 /**
  * 
  * @see GenericMapper
- * @see HtmlFiles
- * @see HtmlFilesDto
+ * @see HtmlFile
+ * @see HtmlFileDto
  * 
  * @author Javier Pérez Alonso
  *
@@ -22,12 +22,12 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT,
       injectionStrategy = InjectionStrategy.CONSTRUCTOR, collectionMappingStrategy = CollectionMappingStrategy.TARGET_IMMUTABLE,
       componentModel = "spring")
-public interface HtmlFilesMapper extends GenericMapper<HtmlFiles,HtmlFilesDto>
+public interface HtmlFilesMapper extends GenericMapper<HtmlFile,HtmlFileDto>
 {
 
       @Override
-      HtmlFiles reverse(HtmlFilesDto htmlFilesDto);
+      HtmlFile reverse(HtmlFileDto htmlFilesDto);
 
       @Override
-      HtmlFilesDto toDto(HtmlFiles htmlFiles);
+      HtmlFileDto toDto(HtmlFile htmlFiles);
 }

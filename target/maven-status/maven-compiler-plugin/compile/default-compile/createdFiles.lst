@@ -1,14 +1,15 @@
-org\jeycode\localab\taskmodel\service\ConcreteTaskAccessServiceImpl.class
+org\jeycode\localab\config\AsyncConfig.class
 org\jeycode\localab\taskmodel\model\filemodeldto\ImgFileDto$1.class
 org\jeycode\localab\configmodel\AppConfigObj.class
 org\jeycode\localab\taskmodel\model\filemodel\CssFile.class
-org\jeycode\localab\taskmodel\model\filemodel\HtmlFiles.class
 org\jeycode\localab\taskmodel\model\filemodeldto\CssFileDto.class
 org\jeycode\localab\taskmodel\model\YMLObj.class
 org\jeycode\localab\taskmodel\model\filemodel\DocFile.class
+org\jeycode\localab\utils\GenericHelper.class
 org\jeycode\localab\loader\GenericYmlMapper.class
 org\jeycode\localab\taskmodel\model\filemodeldto\JsFileDto.class
 org\jeycode\localab\configmodel\thememodel\Theme.class
+org\jeycode\localab\taskmodel\controller\ConcreteTaskController.class
 org\jeycode\localab\taskmodel\model\filemodel\ImgFile.class
 org\jeycode\localab\taskmodel\model\filemodeldto\GenericFrontFileDto$GenericFrontFileDtoBuilderImpl.class
 org\jeycode\localab\taskmodel\model\mapper\CssFileMapperImpl.class
@@ -28,8 +29,10 @@ org\jeycode\localab\taskmodel\model\filemodel\GenericFrontFile.class
 org\jeycode\localab\taskmodel\model\filemodel\DocFile$1.class
 org\jeycode\localab\taskmodel\model\filemodeldto\ImgFileDto.class
 org\jeycode\localab\taskmodel\model\filemodeldto\GenericFrontFileDto.class
+org\jeycode\localab\taskmodel\err\TaskModelException.class
 org\jeycode\localab\taskmodel\model\dto\ConcreteTaskDto.class
 org\jeycode\localab\taskmodel\model\filemodel\JsFile.class
+org\jeycode\localab\config\DBConfig.class
 org\jeycode\localab\taskmodel\model\dto\TaskFilesDto$TaskFilesDtoBuilder.class
 org\jeycode\localab\ymlobjtemplates\YmlObjTemplates.class
 org\jeycode\localab\taskmodel\model\filemodeldto\JsFileDto$1.class
@@ -44,8 +47,6 @@ org\jeycode\localab\loader\ConcreteTaskYmlMapper.class
 org\jeycode\localab\taskmodel\model\filemodeldto\GenericFrontFileDto$1.class
 org\jeycode\localab\taskmodel\model\filemodeldto\JsFileDto$JsFileDtoBuilder.class
 org\jeycode\localab\configmodel\thememodel\AppColor.class
-org\jeycode\localab\sqlite\DBConfig.class
-org\jeycode\localab\taskmodel\model\filemodeldto\HtmlFilesDto.class
 org\jeycode\localab\taskmodel\model\filemodeldto\ImgFileDto$ImgFileDtoBuilder.class
 org\jeycode\localab\taskmodel\model\mapper\TaskFilesMapperImpl.class
 org\jeycode\localab\configmodel\OriginDir.class
@@ -67,6 +68,7 @@ org\jeycode\localab\taskmodel\model\mapper\DocFileMapperImpl.class
 org\jeycode\localab\taskmodel\model\mapper\HtmlFilesMapperImpl.class
 org\jeycode\localab\taskmodel\model\filemodel\Html.class
 org\jeycode\localab\taskmodel\model\mapper\TaskFilesMapper.class
+org\jeycode\localab\taskmodel\service\serviceimpl\ConcreteTaskAccessServiceImpl.class
 org\jeycode\localab\taskmodel\model\ConcreteTask.class
 org\jeycode\localab\taskmodel\model\mapper\ImgFileMapper.class
 org\jeycode\localab\taskmodel\model\mapper\HtmlFilesMapper.class
@@ -74,6 +76,7 @@ org\jeycode\localab\taskmodel\model\dto\TaskFilesDto.class
 org\jeycode\localab\taskmodel\service\GenericService.class
 org\jeycode\localab\taskmodel\model\filemodel\CssFile$1.class
 org\jeycode\localab\taskmodel\repository\ConcreteTaskRepository.class
+org\jeycode\localab\taskmodel\model\filemodel\HtmlFile.class
 org\jeycode\localab\taskmodel\model\mapper\ImgFileMapperImpl.class
 org\jeycode\localab\taskmodel\model\mapper\ConcreteTaskMapperImpl.class
 org\jeycode\localab\taskmodel\model\filemodel\JsFile$JsFileBuilderImpl.class
@@ -84,4 +87,5 @@ org\jeycode\localab\taskmodel\model\filemodeldto\CssFileDto$CssFileDtoBuilder.cl
 org\jeycode\localab\taskmodel\model\filemodeldto\CssFileDto$CssFileDtoBuilderImpl.class
 org\jeycode\localab\taskmodel\model\filemodeldto\HtmlDto.class
 org\jeycode\localab\sqlite\SQLiteDialect.class
+org\jeycode\localab\taskmodel\model\filemodeldto\HtmlFileDto.class
 org\jeycode\localab\taskmodel\model\mapper\GenericMapper.class

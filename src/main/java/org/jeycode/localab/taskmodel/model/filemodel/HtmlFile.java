@@ -14,8 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFileDto;
 import org.jeycode.localab.taskmodel.model.mapper.HtmlFilesMapper;
 import org.jeycode.localab.utils.LocaleRef;
 
@@ -27,7 +28,7 @@ import lombok.NoArgsConstructor;
  * 
  * Entidad que encapsula los datos relacionados a los ficheros html.
  * 
- * @see HtmlFilesDto
+ * @see HtmlFileDto
  * @see HtmlFilesMapper
  * @see LocaleRef
  * @see Html
@@ -43,7 +44,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class HtmlFiles
+@Table(name = "HTML_FILE")
+public class HtmlFile
 {
 
       @Id

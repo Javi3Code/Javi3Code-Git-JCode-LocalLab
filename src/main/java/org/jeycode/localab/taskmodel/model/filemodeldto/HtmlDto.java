@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class HtmlDto
 {
       private String genericPath;
-      private List<HtmlFilesDto> htmlFiles;
+      private List<HtmlFileDto> htmlFiles;
 }

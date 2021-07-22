@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.jeycode.localab.taskmodel.model.ConcreteTask;
 import org.jeycode.localab.taskmodel.model.TaskFiles;
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
  * 
  * @see HtmlDto
  * @see HtmlMapper
- * @see HtmlFiles
+ * @see HtmlFile
  * 
  * @author Javier Pérez Alonso
  *
@@ -40,6 +41,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "HTML")
 public class Html
 {
 
@@ -48,7 +50,7 @@ public class Html
       private long htmlId;
       private String genericPath;
       @OneToMany(cascade = CascadeType.ALL, mappedBy = "htmlObj", orphanRemoval = true, fetch = FetchType.EAGER)
-      private List<HtmlFiles> htmlFiles;
+      private List<HtmlFile> htmlFiles;
       @ManyToOne
       @JoinColumn(name = "taskFilesId")
       private TaskFiles taskFiles;

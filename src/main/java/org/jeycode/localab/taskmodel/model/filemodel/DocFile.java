@@ -1,6 +1,7 @@
 package org.jeycode.localab.taskmodel.model.filemodel;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.jeycode.localab.taskmodel.model.filemodeldto.DocFileDto;
 import org.jeycode.localab.taskmodel.model.mapper.DocFileMapper;
@@ -29,6 +30,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @SuperBuilder
 @Entity
+@Table(name = "DOC_FILE")
 public class DocFile extends GenericFrontFile
 {
 

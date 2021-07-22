@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodel.CssFile;
@@ -45,6 +46,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "TASK_FILES")
 public class TaskFiles
 {
 

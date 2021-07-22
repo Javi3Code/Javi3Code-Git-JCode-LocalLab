@@ -13,7 +13,7 @@ import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.DocFileDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlDto;
-import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFileDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.ImgFileDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.JsFileDto;
 import org.jeycode.localab.utils.LocaleRef;
@@ -72,8 +72,8 @@ public class YMLObjectTemplatesConfig
       @Bean @Scope("singleton")
       public ConcreteTaskDto concreteTaskObjTemplate()
       {
-            HtmlFilesDto htmlFilesOne = new HtmlFilesDto(LocaleRef.es_ES,List.of("htmlSample.html","htmlSample2.html"));
-            HtmlFilesDto htmlFilesTwo = new HtmlFilesDto(LocaleRef.ALL,List.of("htmlSample.html","htmlSample2.html"));
+            HtmlFileDto htmlFilesOne = new HtmlFileDto(LocaleRef.es_ES,List.of("htmlSample.html","htmlSample2.html"));
+            HtmlFileDto htmlFilesTwo = new HtmlFileDto(LocaleRef.ALL,List.of("htmlSample.html","htmlSample2.html"));
 
             HtmlDto html = new HtmlDto("/htmlSampleSubDir",List.of(htmlFilesOne,htmlFilesTwo));
             CssFileDto css = CssFileDto.builder()

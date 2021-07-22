@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HtmlFilesDto
+public class HtmlFileDto
 {
 
       private LocaleRef localeRef = LocaleRef.ALL;
