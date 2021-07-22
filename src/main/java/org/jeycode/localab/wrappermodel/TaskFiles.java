@@ -38,13 +38,13 @@ public class TaskFiles
       private long taskFilesId;
       @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<Html> html;
-      @OneToMany
+      @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<CssFile> css;
-      @OneToMany
+      @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<JsFile> js;
-      @OneToMany
+      @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<ImgFile> img;
-      @OneToMany
+      @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<DocFile> doc;
       @OneToOne
       private ConcreteTask concreteTask;

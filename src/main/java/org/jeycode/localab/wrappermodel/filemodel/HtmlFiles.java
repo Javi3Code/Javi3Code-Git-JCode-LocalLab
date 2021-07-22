@@ -2,6 +2,7 @@ package org.jeycode.localab.wrappermodel.filemodel;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -34,6 +35,7 @@ public class HtmlFiles
       @Column(nullable = false)
       private LocaleRef localeRef = LocaleRef.ALL;
       @ElementCollection(fetch = FetchType.EAGER)
+      @CollectionTable(name = "HTML_Lst_FILES")
       private List<String> files;
       @ManyToOne
       @JoinColumn(name = "htmlId")

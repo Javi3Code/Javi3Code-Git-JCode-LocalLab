@@ -2,6 +2,7 @@ package org.jeycode.localab.wrappermodel.filemodel;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+
+import org.jeycode.localab.wrappermodel.TaskFiles;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class GenericFrontFile
+public abstract class GenericFrontFile
 {
 
       @Id
@@ -29,5 +33,8 @@ public class GenericFrontFile
       protected long fileId;
       protected String genericPath;
       @ElementCollection
+      @CollectionTable(name = "FILES")
       protected List<String> files;
+      @ManyToOne
+      protected TaskFiles taskFiles;
 }
