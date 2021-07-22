@@ -39,7 +39,9 @@ public class ConcreteTask
 
       @Id
       private String taskname;
+      private String taskdescription;
+      private String lastUpdate;
       @OneToOne(mappedBy = "concreteTask", cascade = CascadeType.ALL)
       private TaskFiles taskfiles;
-      private String taskdescription;
+
 }

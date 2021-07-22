@@ -35,10 +35,10 @@ public class ConcreteTaskAccessServiceImpl implements ConcreteTaskAccessService
 
       private final ConcreteTaskRepository concreteTaskRepository;
 
-      @Override
+      @Override 
       public List<ConcreteTask> findAll()
       {
-            return null;
+            return concreteTaskRepository.findAll();
       }
 
       @Override
