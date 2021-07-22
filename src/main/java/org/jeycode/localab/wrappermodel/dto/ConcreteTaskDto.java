@@ -15,6 +15,5 @@ public class ConcreteTaskDto implements YMLObj
 {
 
       private String taskname;
-      private boolean persist;
       private TaskFilesDto taskfiles;
 }

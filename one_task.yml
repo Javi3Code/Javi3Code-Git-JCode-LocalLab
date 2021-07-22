@@ -1,5 +1,4 @@
 taskname: WP-2777
-persist: true
 taskfiles: 
     html:
       - genericPath:

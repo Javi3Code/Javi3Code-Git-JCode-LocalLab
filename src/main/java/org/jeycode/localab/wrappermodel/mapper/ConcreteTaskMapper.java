@@ -10,10 +10,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(uses = {TaskFilesMapper.class}, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT,
       injectionStrategy = InjectionStrategy.CONSTRUCTOR, collectionMappingStrategy = CollectionMappingStrategy.TARGET_IMMUTABLE,
       componentModel = "spring")
-public interface ConcreteTaskMapper
+public interface ConcreteTaskMapper extends GenericMapper<ConcreteTask,ConcreteTaskDto>
 {
 
-      ConcreteTask reverse(ConcreteTaskDto concreteTaskDto);
-
-      ConcreteTaskDto toDto(ConcreteTask concreteTask);
 }

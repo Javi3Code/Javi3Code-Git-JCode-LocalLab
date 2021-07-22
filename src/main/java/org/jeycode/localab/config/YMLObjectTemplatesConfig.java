@@ -9,9 +9,12 @@ import org.jeycode.localab.configmodel.thememodel.Theme;
 import org.jeycode.localab.utils.LocaleRef;
 import org.jeycode.localab.wrappermodel.dto.ConcreteTaskDto;
 import org.jeycode.localab.wrappermodel.dto.TaskFilesDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.GenericFrontFileDto;
+import org.jeycode.localab.wrappermodel.filemodeldto.CssFileDto;
+import org.jeycode.localab.wrappermodel.filemodeldto.DocFileDto;
 import org.jeycode.localab.wrappermodel.filemodeldto.HtmlDto;
 import org.jeycode.localab.wrappermodel.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.wrappermodel.filemodeldto.ImgFileDto;
+import org.jeycode.localab.wrappermodel.filemodeldto.JsFileDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -59,10 +62,25 @@ public class YMLObjectTemplatesConfig
             HtmlFilesDto htmlFilesTwo = new HtmlFilesDto(LocaleRef.ALL,List.of("htmlSample.html","htmlSample2.html"));
 
             HtmlDto html = new HtmlDto("/htmlSampleSubDir",List.of(htmlFilesOne,htmlFilesTwo));
-            GenericFrontFileDto css = new GenericFrontFileDto("/cssSampleSubDir",List.of("cssfilesample.css"));
-            GenericFrontFileDto js = new GenericFrontFileDto("/jsSampleSubDir",List.of("jsfilesample.js"));
-            GenericFrontFileDto img = new GenericFrontFileDto("/imgSampleSubDir",List.of("imgfilesample.svg"));
-            GenericFrontFileDto doc = new GenericFrontFileDto("/docSampleSubDir",List.of("docfilesample.pdf"));
+            CssFileDto css = CssFileDto.builder()
+                                       .genericPath("/cssSampleSubDir")
+                                       .files(List.of("cssfilesample.css"))
+                                       .build();
+
+            JsFileDto js = JsFileDto.builder()
+                                    .genericPath("/jsSampleSubDir")
+                                    .files(List.of("jsfilesample.js"))
+                                    .build();
+
+            ImgFileDto img = ImgFileDto.builder()
+                                       .genericPath("/imgSampleSubDir")
+                                       .files(List.of("imgfilesample.svg"))
+                                       .build();
+
+            DocFileDto doc = DocFileDto.builder()
+                                       .genericPath("/docSampleSubDir")
+                                       .files(List.of("docfilesample.pdf"))
+                                       .build();
 
             TaskFilesDto taskfile = TaskFilesDto.builder()
                                                 .html(List.of(html))
@@ -72,7 +90,7 @@ public class YMLObjectTemplatesConfig
                                                 .doc(List.of(doc))
                                                 .build();
 
-            return new ConcreteTaskDto("WP-SampleTask",false,taskfile);
+            return new ConcreteTaskDto("WP-SampleTask",taskfile);
       }
 
 }
