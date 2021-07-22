@@ -17,6 +17,6 @@ public class ConcreteTaskDto implements YMLObj
       private String taskname;
       private String taskdescription;
       private String lastUpdate;
-      private TaskFilesDto taskfiles;
+      private TaskFilesDto taskFiles;
       
 }

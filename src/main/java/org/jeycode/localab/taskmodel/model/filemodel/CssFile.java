@@ -1,21 +1,31 @@
 package org.jeycode.localab.taskmodel.model.filemodel;
 
+import java.util.List;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.jeycode.localab.taskmodel.model.TaskFiles;
 import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
 import org.jeycode.localab.taskmodel.model.mapper.CssFileMapper;
 
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
  * 
  * 
  * Entidad --> Archivos Css
  * 
- * @see GenericFrontFile
  * @see CssFileDto
  * @see CssFileMapper
  * 
@@ -25,13 +35,23 @@ import lombok.experimental.SuperBuilder;
  *         22 jul. 2021
  *
  */
-
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@SuperBuilder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = {"taskFiles"})
+@Builder
 @Entity
 @Table(name = "CSS_FILE")
-public class CssFile extends GenericFrontFile
+public class CssFile
 {
 
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      private long fileId;
+      private String genericPath;
+      @ElementCollection
+      @CollectionTable(name = "CSS_FILES")
+      private List<String> files;
+      @ManyToOne
+      private TaskFiles taskFiles;
 }

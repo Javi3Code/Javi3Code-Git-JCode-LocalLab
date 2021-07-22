@@ -21,6 +21,7 @@ import org.jeycode.localab.taskmodel.model.mapper.HtmlMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
@@ -40,13 +41,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"taskFiles"})
 @Entity
 @Table(name = "HTML")
 public class Html
 {
 
       @Id
-      @GeneratedValue(strategy = GenerationType.AUTO)
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private long htmlId;
       private String genericPath;
       @OneToMany(cascade = CascadeType.ALL, mappedBy = "htmlObj", orphanRemoval = true, fetch = FetchType.EAGER)

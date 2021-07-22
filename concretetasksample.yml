@@ -2,8 +2,8 @@
 taskname: "WP-SampleTask"
 taskdescription: "Este fichero es un ejemplo de como debe ser un task.yml, puede y\
   \ debe reutilizarse."
-lastUpdate: "22/07/21 05:33:44"
-taskfiles:
+lastUpdate: "22/07/21 11:31:19"
+taskFiles:
   html:
   - genericPath: "/htmlSampleSubDir"
     htmlFiles:

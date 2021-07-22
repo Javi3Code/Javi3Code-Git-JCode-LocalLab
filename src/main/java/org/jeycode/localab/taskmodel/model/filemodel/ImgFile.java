@@ -1,21 +1,31 @@
 package org.jeycode.localab.taskmodel.model.filemodel;
 
+import java.util.List;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.jeycode.localab.taskmodel.model.TaskFiles;
 import org.jeycode.localab.taskmodel.model.filemodeldto.ImgFileDto;
 import org.jeycode.localab.taskmodel.model.mapper.ImgFileMapper;
 
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 /**
  * 
  * 
  * Entidad --> Archivos Img
  * 
- * @see GenericFrontFile
  * @see ImgFileDto
  * @see ImgFileMapper
  * 
@@ -26,12 +36,23 @@ import lombok.experimental.SuperBuilder;
  *
  */
 
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@SuperBuilder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = {"taskFiles"})
+@Builder
 @Entity
 @Table(name = "IMG_FILE")
-public class ImgFile extends GenericFrontFile
+public class ImgFile
 {
 
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      private long fileId;
+      private String genericPath;
+      @ElementCollection
+      @CollectionTable(name = "IMG_FILES")
+      private List<String> files;
+      @ManyToOne
+      private TaskFiles taskFiles;
 }

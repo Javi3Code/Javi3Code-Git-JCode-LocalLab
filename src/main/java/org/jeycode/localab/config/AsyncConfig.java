@@ -21,7 +21,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 
 @Configuration
-@EnableAsync
+@EnableAsync(proxyTargetClass = true)
 public class AsyncConfig
 {
 

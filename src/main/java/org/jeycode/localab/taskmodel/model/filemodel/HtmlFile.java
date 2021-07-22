@@ -23,6 +23,7 @@ import org.jeycode.localab.utils.LocaleRef;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
@@ -43,13 +44,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"htmlObj"})
 @Entity
 @Table(name = "HTML_FILE")
 public class HtmlFile
 {
 
       @Id
-      @GeneratedValue(strategy = GenerationType.AUTO)
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private long htmlFilesId;
       @Enumerated(EnumType.STRING)
       @Column(nullable = false)

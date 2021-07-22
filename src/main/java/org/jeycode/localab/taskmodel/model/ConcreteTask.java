@@ -1,7 +1,10 @@
 package org.jeycode.localab.taskmodel.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -36,14 +39,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "CONCRETE_TASK")
-public class ConcreteTask
+public class ConcreteTask implements Serializable
 {
 
+      /**
+       * 
+       */
+      private static final long serialVersionUID = 1L;
       @Id
       private String taskname;
       private String taskdescription;
       private String lastUpdate;
-      @OneToOne(mappedBy = "concreteTask", cascade = CascadeType.ALL)
-      private TaskFiles taskfiles;
+      @OneToOne(mappedBy = "concreteTask", cascade = CascadeType.ALL, optional = false, orphanRemoval = true, fetch = FetchType.EAGER)
+      private TaskFiles taskFiles;
 
 }

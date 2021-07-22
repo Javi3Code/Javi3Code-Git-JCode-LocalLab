@@ -19,4 +19,6 @@ import org.springframework.stereotype.Repository;
 public interface ConcreteTaskRepository extends JpaRepository<ConcreteTask,String>
 {
 
+//      Optional<ConcreteTask> find
+
 }

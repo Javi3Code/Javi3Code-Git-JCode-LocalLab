@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -14,7 +15,6 @@ import javax.persistence.Table;
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodel.CssFile;
 import org.jeycode.localab.taskmodel.model.filemodel.DocFile;
-import org.jeycode.localab.taskmodel.model.filemodel.GenericFrontFile;
 import org.jeycode.localab.taskmodel.model.filemodel.Html;
 import org.jeycode.localab.taskmodel.model.filemodel.ImgFile;
 import org.jeycode.localab.taskmodel.model.filemodel.JsFile;
@@ -24,6 +24,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
@@ -33,7 +34,6 @@ import lombok.NoArgsConstructor;
  * @see TaskFilesDto
  * @see TaskFilesMapper
  * @see Html
- * @see GenericFrontFile
  * 
  * @author Javier Pérez Alonso
  *
@@ -45,13 +45,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"concreteTask"})
 @Entity
 @Table(name = "TASK_FILES")
 public class TaskFiles
 {
 
       @Id
-      @GeneratedValue(strategy = GenerationType.AUTO)
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private long taskFilesId;
       @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<Html> html;
@@ -64,6 +65,7 @@ public class TaskFiles
       @OneToMany(mappedBy = "taskFiles", orphanRemoval = true, cascade = CascadeType.ALL)
       private List<DocFile> doc;
       @OneToOne
+      @JoinColumn(name = "taskName")
       private ConcreteTask concreteTask;
 
 }
