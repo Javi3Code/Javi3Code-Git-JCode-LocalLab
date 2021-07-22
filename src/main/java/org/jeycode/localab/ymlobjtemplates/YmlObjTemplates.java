@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
-import org.jeycode.localab.loader.GenericFileMapper;
-import org.jeycode.localab.wrappermodel.dto.ConcreteTaskDto;
+import org.jeycode.localab.loader.GenericYmlMapper;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -20,7 +20,7 @@ public class YmlObjTemplates
 
 //      @Qualifier(CONFIGMAPPER)
 //      @Autowired //No uso esto por @Primary en ConfigMapper
-      private final GenericFileMapper mapper;
+      private final GenericYmlMapper mapper;
       private final AppConfigObj appConfigObj;
       private final ConcreteTaskDto concreteTaskObj;
 

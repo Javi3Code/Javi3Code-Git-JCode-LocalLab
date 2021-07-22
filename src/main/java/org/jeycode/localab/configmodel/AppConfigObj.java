@@ -3,7 +3,7 @@ package org.jeycode.localab.configmodel;
 import java.util.List;
 
 import org.jeycode.localab.configmodel.thememodel.Theme;
-import org.jeycode.localab.wrappermodel.YMLObj;
+import org.jeycode.localab.taskmodel.model.YMLObj;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

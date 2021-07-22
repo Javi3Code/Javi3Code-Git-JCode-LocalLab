@@ -6,15 +6,15 @@ import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
 import org.jeycode.localab.configmodel.thememodel.AppColor;
 import org.jeycode.localab.configmodel.thememodel.Theme;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
+import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.DocFileDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.ImgFileDto;
+import org.jeycode.localab.taskmodel.model.filemodeldto.JsFileDto;
 import org.jeycode.localab.utils.LocaleRef;
-import org.jeycode.localab.wrappermodel.dto.ConcreteTaskDto;
-import org.jeycode.localab.wrappermodel.dto.TaskFilesDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.CssFileDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.DocFileDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.HtmlDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.HtmlFilesDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.ImgFileDto;
-import org.jeycode.localab.wrappermodel.filemodeldto.JsFileDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -90,7 +90,8 @@ public class YMLObjectTemplatesConfig
                                                 .doc(List.of(doc))
                                                 .build();
 
-            return new ConcreteTaskDto("WP-SampleTask",taskfile);
+            return new ConcreteTaskDto("WP-SampleTask",taskfile,
+                                       "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.");
       }
 
 }

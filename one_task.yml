@@ -1,4 +1,5 @@
 taskname: WP-2777
+taskdescription: Info relevante
 taskfiles: 
     html:
       - genericPath:
