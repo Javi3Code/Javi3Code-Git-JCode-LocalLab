@@ -102,8 +102,8 @@ public class YMLObjectTemplatesConfig
                                                 .doc(List.of(doc))
                                                 .build();
 
-            return new ConcreteTaskDto("WP-SampleTask",taskfile,
-                                       "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.");
+            return new ConcreteTaskDto("WP-SampleTask",  "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.",
+                                       taskfile );
       }
 
 }

@@ -1,7 +1,10 @@
 package org.jeycode.localab;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,16 +22,16 @@ public class JCodeLocalLabApplication
       }
 
 //       Ejemplo para serializar o deserializar los yml usados en la app
-//      @Bean
-//      public CommandLineRunner commandLineRunner(@Autowired JCodeLocalLabApplication app)
-//      {
-//            return args->
-//                  {
+      @Bean
+      public CommandLineRunner commandLineRunner(@Autowired JCodeLocalLabApplication app)
+      {
+            return args->
+                  {
 //                        app.templates.exportAppConfigYmlTemplate();
 //                        app.templates.exportConcreteTaskYmlTemplate();
-//                        ConcreteTaskFileMapper mapper = new ConcreteTaskFileMapper();
+//                        ConcreteTaskYmlMapper mapper = new ConcreteTaskYmlMapper();
 //                        System.out.println(mapper.loadYmlFile(new File("concretetasksample.yml")));
-//                  };
-//      }
+                  };
+      }
 
 }
