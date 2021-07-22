@@ -12,11 +12,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.jeycode.localab.taskmodel.model.ConcreteTask;
 import org.jeycode.localab.taskmodel.model.TaskFiles;
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlDto;
+import org.jeycode.localab.taskmodel.model.mapper.HtmlMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+/**
+ * 
+ * Entidad que encapsula los datos relacionados a los archivos HTMl de la
+ * {@link ConcreteTask} en cuestión.
+ * 
+ * @see HtmlDto
+ * @see HtmlMapper
+ * @see HtmlFiles
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
 
 @Data
 @AllArgsConstructor

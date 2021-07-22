@@ -10,11 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodel.CssFile;
 import org.jeycode.localab.taskmodel.model.filemodel.DocFile;
+import org.jeycode.localab.taskmodel.model.filemodel.GenericFrontFile;
 import org.jeycode.localab.taskmodel.model.filemodel.Html;
 import org.jeycode.localab.taskmodel.model.filemodel.ImgFile;
 import org.jeycode.localab.taskmodel.model.filemodel.JsFile;
+import org.jeycode.localab.taskmodel.model.mapper.TaskFilesMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +25,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 
+ * Entidad que encapsula las listas de archivos vinculados a una
+ * {@link ConcreteTask}.
+ * 
+ * @see TaskFilesDto
+ * @see TaskFilesMapper
+ * @see Html
+ * @see GenericFrontFile
  * 
  * @author Javier Pérez Alonso
  *

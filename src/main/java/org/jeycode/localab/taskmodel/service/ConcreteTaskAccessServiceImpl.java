@@ -10,13 +10,29 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 
+ * Servicio que implementa los métodos de {@link ConcreteTaskAccessService} para
+ * encapsular todo el trabajo espeso de esas operaciones.
+ * 
+ * 
+ * @see ConcreteTask
+ * @see ConcreteTaskRepository
+ * 
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ConcreteTaskAccessServiceImpl implements ConcreteTaskAccessService
 {
 
-      private ConcreteTaskRepository concreteTaskRepository;
+      private final ConcreteTaskRepository concreteTaskRepository;
 
       @Override
       public List<ConcreteTask> findAll()

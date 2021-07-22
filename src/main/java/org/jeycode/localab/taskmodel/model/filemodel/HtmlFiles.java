@@ -15,11 +15,29 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlFilesDto;
+import org.jeycode.localab.taskmodel.model.mapper.HtmlFilesMapper;
 import org.jeycode.localab.utils.LocaleRef;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+/**
+ * 
+ * Entidad que encapsula los datos relacionados a los ficheros html.
+ * 
+ * @see HtmlFilesDto
+ * @see HtmlFilesMapper
+ * @see LocaleRef
+ * @see Html
+ * 
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
 
 @Data
 @AllArgsConstructor

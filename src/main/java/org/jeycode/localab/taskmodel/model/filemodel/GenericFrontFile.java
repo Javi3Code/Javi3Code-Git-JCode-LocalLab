@@ -12,12 +12,30 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 
+import org.jeycode.localab.taskmodel.model.ConcreteTask;
 import org.jeycode.localab.taskmodel.model.TaskFiles;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+/**
+ * 
+ * Entidad abstracta que encapsula los datos relacionados a los archivos de
+ * front noHtml de una {@link ConcreteTask}.
+ * 
+ * @see CssFile
+ * @see JsFile
+ * @see ImgFile
+ * @see DocFile
+ * 
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
 
 @Data
 @AllArgsConstructor

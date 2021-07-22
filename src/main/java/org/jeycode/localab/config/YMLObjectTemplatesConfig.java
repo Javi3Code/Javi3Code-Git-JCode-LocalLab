@@ -19,6 +19,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+/**
+ * 
+ * En esta clase establecemos dos beans usados para la creación de los YML que
+ * serviran de plantilla.
+ * 
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
+
 @Configuration
 public class YMLObjectTemplatesConfig
 {
