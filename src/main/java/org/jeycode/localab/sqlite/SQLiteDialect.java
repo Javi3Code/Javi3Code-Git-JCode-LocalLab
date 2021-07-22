@@ -8,6 +8,18 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StringType;
 
+/**
+ * 
+ * Clase que establece el Dialecto SQLite, no soportado en hibernate por
+ * defecto.
+ * 
+ * 
+ * @author Javier Pérez Alonso
+ *
+ *         22 jul. 2021
+ *
+ */
+
 public class SQLiteDialect extends Dialect
 {
 
@@ -32,7 +44,7 @@ public class SQLiteDialect extends Dialect
             registerColumnType(Types.BINARY,"blob");
             registerColumnType(Types.VARBINARY,"blob");
             registerColumnType(Types.LONGVARBINARY,"blob");
-            // registerColumnType(Types.NULL, "null");
+            registerColumnType(Types.NULL,"null");
             registerColumnType(Types.BLOB,"blob");
             registerColumnType(Types.CLOB,"clob");
             registerColumnType(Types.BOOLEAN,"integer");
