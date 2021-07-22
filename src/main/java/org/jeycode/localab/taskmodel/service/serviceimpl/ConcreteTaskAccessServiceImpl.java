@@ -1,10 +1,11 @@
-package org.jeycode.localab.taskmodel.service;
+package org.jeycode.localab.taskmodel.service.serviceimpl;
 
 import java.util.List;
 import java.util.function.Predicate;
 
 import org.jeycode.localab.taskmodel.model.ConcreteTask;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
+import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;

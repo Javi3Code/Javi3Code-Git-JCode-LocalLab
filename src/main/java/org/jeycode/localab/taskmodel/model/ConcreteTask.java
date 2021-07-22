@@ -8,7 +8,7 @@ import javax.persistence.OneToOne;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
-import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessServiceImpl;
+import org.jeycode.localab.taskmodel.service.serviceimpl.ConcreteTaskAccessServiceImpl;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
