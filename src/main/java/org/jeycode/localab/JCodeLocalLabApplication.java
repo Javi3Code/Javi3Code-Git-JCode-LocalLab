@@ -2,8 +2,6 @@ package org.jeycode.localab;
 
 import java.io.File;
 
-import javax.validation.Valid;
-
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
 import org.jeycode.localab.taskmodel.err.TaskFieldsException;
@@ -53,7 +51,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
             showData(concTask);
       }
 
-      private void showData(@Valid ConcreteTaskDto concTask)
+      private void showData(ConcreteTaskDto concTask)
       {
             ConcreteTask concEntity = mapp.reverse(concTask);
             try
