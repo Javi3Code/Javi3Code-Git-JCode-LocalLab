@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodel.CssFile;
 import org.jeycode.localab.taskmodel.model.filemodel.DocFile;
@@ -29,7 +30,7 @@ import lombok.ToString;
 /**
  * 
  * Entidad que encapsula las listas de archivos vinculados a una
- * {@link ConcreteTask}.
+ * {@link ConcreteTaskDto}.
  * 
  * @see TaskFilesDto
  * @see TaskFilesMapper

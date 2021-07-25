@@ -1,6 +1,8 @@
 package org.jeycode.localab.taskmodel.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.UpdateTimestamp;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
@@ -49,8 +52,9 @@ public class ConcreteTask implements Serializable
       @Id
       private String taskname;
       private String taskdescription;
-      private String lastUpdate;
+      private LocalDate creationDate;
+      @UpdateTimestamp
+      private LocalDateTime lastUpdate;
       @OneToOne(mappedBy = "concreteTask", cascade = CascadeType.ALL, optional = false, orphanRemoval = true, fetch = FetchType.EAGER)
       private TaskFiles taskFiles;
-
 }

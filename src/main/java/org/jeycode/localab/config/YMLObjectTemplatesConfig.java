@@ -1,7 +1,5 @@
 package org.jeycode.localab.config;
 
-import static org.jeycode.localab.utils.GenericHelper.dateFormatted;
-
 import java.util.List;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
@@ -105,8 +103,7 @@ public class YMLObjectTemplatesConfig
                                                 .build();
 
             return new ConcreteTaskDto("WP-SampleTask",
-                                       "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.",
-                                       dateFormatted(),taskfile);
+                                       "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.",taskfile);
       }
 
 }

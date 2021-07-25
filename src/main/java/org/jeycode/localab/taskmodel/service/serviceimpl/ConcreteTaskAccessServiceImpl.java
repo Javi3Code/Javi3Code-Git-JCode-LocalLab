@@ -1,9 +1,16 @@
 package org.jeycode.localab.taskmodel.service.serviceimpl;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.function.Predicate;
 
-import org.jeycode.localab.taskmodel.model.ConcreteTask;
+import org.jeycode.localab.taskmodel.err.TaskModelException;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDtoToShow;
+import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.springframework.stereotype.Service;
@@ -17,7 +24,8 @@ import lombok.extern.slf4j.Slf4j;
  * encapsular todo el trabajo espeso de esas operaciones.
  * 
  * 
- * @see ConcreteTask
+ * @see ConcreteTaskDto
+ * @see ConcreteTaskDtoToShow
  * @see ConcreteTaskRepository
  * 
  * 
@@ -34,21 +42,32 @@ public class ConcreteTaskAccessServiceImpl implements ConcreteTaskAccessService
 {
 
       private final ConcreteTaskRepository concreteTaskRepository;
+      private final ConcreteTaskMapper mapper;
+      private final Predicate<List<ConcreteTaskDto>> isEmptyLst = List::isEmpty;
 
-      @Override 
-      public List<ConcreteTask> findAll()
+      @Override
+      public List<ConcreteTaskDto> findAll()
       {
-            return concreteTaskRepository.findAll();
+            List<ConcreteTaskDto> data = concreteTaskRepository.findAll()
+                                                               .stream()
+                                                               .map(mapper::toDtoToShow)
+                                                               .collect(toList());
+
+            Optional.of(data)
+                    .filter(isEmptyLst.negate())
+                    .orElseThrow(()-> new TaskModelException("No existen tareas guardadas actualmente.",
+                                                             "Agrega una nueva tarea y guardala."));
+            return data;
       }
 
       @Override
-      public ConcreteTask findById(String id)
+      public ConcreteTaskDtoToShow findById(String id)
       {
             return null;
       }
 
       @Override
-      public ConcreteTask findOneIf(Predicate<?> is)
+      public List<ConcreteTaskDto> findAllSortByCreationDate(boolean asc)
       {
             return null;
       }
@@ -60,25 +79,25 @@ public class ConcreteTaskAccessServiceImpl implements ConcreteTaskAccessService
       }
 
       @Override
-      public ConcreteTask addOne(ConcreteTask entity)
+      public ConcreteTaskDtoToShow addOne(ConcreteTaskDto dto)
       {
             return null;
       }
 
       @Override
-      public ConcreteTask updateOne(ConcreteTask entity)
+      public ConcreteTaskDtoToShow updateOne(ConcreteTaskDto dto)
       {
             return null;
       }
 
       @Override
-      public boolean deleteOne(ConcreteTask entity)
+      public boolean deleteOne(ConcreteTaskDto dto)
       {
             return false;
       }
 
       @Override
-      public ConcreteTask updateAll(ConcreteTask entity)
+      public ConcreteTaskDto updateAll(Set<ConcreteTaskDto> dto)
       {
             return null;
       }

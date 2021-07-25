@@ -13,8 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.jeycode.localab.taskmodel.model.ConcreteTask;
 import org.jeycode.localab.taskmodel.model.TaskFiles;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.HtmlDto;
 import org.jeycode.localab.taskmodel.model.mapper.HtmlMapper;
 
@@ -26,7 +26,7 @@ import lombok.ToString;
 /**
  * 
  * Entidad que encapsula los datos relacionados a los archivos HTMl de la
- * {@link ConcreteTask} en cuestión.
+ * {@link ConcreteTaskDto} en cuestión.
  * 
  * @see HtmlDto
  * @see HtmlMapper

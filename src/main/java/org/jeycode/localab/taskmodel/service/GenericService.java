@@ -1,7 +1,7 @@
 package org.jeycode.localab.taskmodel.service;
 
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.Set;
 
 /**
  * 
@@ -11,26 +11,26 @@ import java.util.function.Predicate;
  *
  *         22 jul. 2021
  *
- * @param <Entity> La entidad a tratar.
- * @param <Id>     La PK de la entidad.
+ * @param <Dto> DTO de la entidad a tratar.
+ * @param <Id>  La PK de la entidad.
  */
-public interface GenericService<Entity,Id>
+public interface GenericService<Dto,Id>
 {
 
-      List<Entity> findAll();
+      List<Dto> findAll();
 
-      Entity findById(Id id);
+      List<Dto> findAllSortByCreationDate(boolean asc);
 
-      Entity findOneIf(Predicate<?> is);
+      Dto findById(Id id);
 
       boolean deleteAll();
 
-      Entity addOne(Entity entity);
+      Dto addOne(Dto dto);
 
-      Entity updateOne(Entity entity);
+      Dto updateOne(Dto dto);
 
-      boolean deleteOne(Entity entity);
+      boolean deleteOne(Dto dto);
 
-      Entity updateAll(Entity entity);
+      Dto updateAll(Set<Dto> dto);
 
 }

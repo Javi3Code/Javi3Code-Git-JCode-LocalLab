@@ -1,9 +1,8 @@
 package org.jeycode.localab.taskmodel.controller;
 
-import java.util.List;
-import java.util.function.Predicate;
+import javax.validation.Valid;
 
-import org.jeycode.localab.taskmodel.model.ConcreteTask;
+import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.jeycode.localab.taskmodel.service.serviceimpl.ConcreteTaskAccessServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -12,8 +11,8 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * 
- * Controller de las operaciones relacionadas a {@link ConcreteTask} contra la
- * database. Expone los métodos, pero oculta sus implementaciones.
+ * Controller de las operaciones relacionadas a {@link ConcreteTaskDto} contra
+ * la database. Expone los métodos, pero oculta sus implementaciones.
  * 
  * @see ConcreteTaskAccessServiceImpl
  * 
@@ -31,44 +30,45 @@ public class ConcreteTaskController
 
       private final ConcreteTaskAccessService concreteTaskService;
 
-      public List<ConcreteTask> findAll()
+//
+//      public List<ConcreteTaskDto> findAll()
+//      {
+//            return concreteTaskService.findAll(); 
+//      }
+//
+//      public ConcreteTaskDto findById(String id)
+//      {
+//            return concreteTaskService.findById(id);
+//      }
+//
+//      public ConcreteTaskDto findOneIf(Predicate<?> is)
+//      {
+//            return concreteTaskService.findOneIf(is);
+//      }
+//
+//      public boolean deleteAll()
+//      {
+//            return concreteTaskService.deleteAll();
+//      }
+//
+      public ConcreteTaskDto addOne(@Valid ConcreteTaskDto concTaskDto)
       {
-            return concreteTaskService.findAll();
+            return concreteTaskService.addOne(concTaskDto);
       }
-
-      public ConcreteTask findById(String id)
-      {
-            return concreteTaskService.findById(id);
-      }
-
-      public ConcreteTask findOneIf(Predicate<?> is)
-      {
-            return concreteTaskService.findOneIf(is);
-      }
-
-      public boolean deleteAll()
-      {
-            return concreteTaskService.deleteAll();
-      }
-
-      public ConcreteTask addOne(ConcreteTask entity)
-      {
-            return concreteTaskService.addOne(entity);
-      }
-
-      public ConcreteTask updateOne(ConcreteTask entity)
-      {
-            return concreteTaskService.updateOne(entity);
-      }
-
-      public boolean deleteOne(ConcreteTask entity)
-      {
-            return concreteTaskService.deleteOne(entity);
-      }
-
-      public ConcreteTask updateAll(ConcreteTask entity)
-      {
-            return concreteTaskService.updateAll(entity);
-      }
+//
+//      public ConcreteTaskDto updateOne(ConcreteTaskDto concTaskDto)
+//      {
+//            return concreteTaskService.updateOne(entity);
+//      }
+//
+//      public boolean deleteOne(ConcreteTaskDto concTaskDto)
+//      {
+//            return concreteTaskService.deleteOne(concTaskDto);
+//      }
+//
+//      public ConcreteTaskDto updateAll(Set<ConcreteTaskDto> concTaskDtos)
+//      {
+//            return concreteTaskService.updateAll(concTaskDtos);
+//      }
 
 }
