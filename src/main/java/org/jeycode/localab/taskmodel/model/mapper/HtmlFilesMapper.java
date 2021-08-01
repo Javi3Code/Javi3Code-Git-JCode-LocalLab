@@ -25,9 +25,4 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface HtmlFilesMapper extends GenericMapper<HtmlFile,HtmlFileDto>
 {
 
-      @Override
-      HtmlFile reverse(HtmlFileDto htmlFilesDto);
-
-      @Override
-      HtmlFileDto toDto(HtmlFile htmlFiles);
 }

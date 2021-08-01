@@ -2,9 +2,12 @@ package org.jeycode.localab.view.worker;
 
 import java.util.List;
 
+import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
 
 import org.springframework.stereotype.Component;
+
+import lombok.AllArgsConstructor;
 
 /**
  * 
@@ -17,9 +20,13 @@ import org.springframework.stereotype.Component;
  *         24 jul. 2021
  *
  */
+
+@AllArgsConstructor
 @Component
 public class CommandViewWorker extends SwingWorker<String,String>
 {
+
+      private final JTextArea areaTxt;
 
       @Override
       protected String doInBackground() throws Exception

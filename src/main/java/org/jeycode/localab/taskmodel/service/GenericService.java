@@ -17,9 +17,9 @@ import java.util.Set;
 public interface GenericService<Dto,Id>
 {
 
-      List<Dto> findAll();
+      List<? extends Dto> findAll();
 
-      List<Dto> findAllSortByCreationDate(boolean asc);
+      List<? extends Dto> findAllSortByCreationDate(boolean asc);
 
       Dto findById(Id id);
 
@@ -27,10 +27,12 @@ public interface GenericService<Dto,Id>
 
       Dto addOne(Dto dto);
 
+      Set<? extends Dto> addAll(Set<? extends Dto> dtos);
+
       Dto updateOne(Dto dto);
 
-      boolean deleteOne(Dto dto);
+      Set<? extends Dto> updateAll(Set<? extends Dto> dtos);
 
-      Dto updateAll(Set<Dto> dto);
+      boolean deleteOne(Dto dto);
 
 }

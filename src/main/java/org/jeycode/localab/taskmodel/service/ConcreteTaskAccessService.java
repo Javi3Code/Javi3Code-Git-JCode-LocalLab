@@ -3,12 +3,10 @@ package org.jeycode.localab.taskmodel.service;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 
 /**
- * 
- * Interface que implementa los genéricos de {@link GenericService}. Contrato
- * para el servicio de acceso a datos de ConcreteTask - Entity, post mapeo dto.
+ * Implementa los genéricos de {@link GenericService}. Contrato para el servicio
+ * de acceso a datos de ConcreteTask - Entity, post mapeo dto.
  * 
  * @see ConcreteTaskDto
- * 
  * 
  * @author Javier Pérez Alonso
  *
@@ -17,6 +15,6 @@ import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
  */
 public interface ConcreteTaskAccessService extends GenericService<ConcreteTaskDto,String>
 {
+      
 
 }
- 

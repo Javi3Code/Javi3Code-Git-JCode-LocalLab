@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.function.Predicate;
 
 public interface GenericHelper
@@ -18,6 +19,7 @@ public interface GenericHelper
       String Left_SALSH = "\\";
 
       Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
+      Predicate<List<?>> isEmptyLst = List::isEmpty;
 
       /**
        * dates

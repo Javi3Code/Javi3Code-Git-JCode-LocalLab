@@ -48,16 +48,48 @@ public class FieldValidators
             validateFields(joinPoint);
       }
 
+      @Before(value = "execution(* org.jeycode.localab.taskmodel.controller.ConcreteTaskController.addAll(..))", argNames = "concTaskDtos")
+      public void validateAddConcreteTaskDtos(JoinPoint joinPoint)
+      {
+            validateSetField(joinPoint);
+
+      }
+
       @Before(value = "execution(* org.jeycode.localab.taskmodel.controller.ConcreteTaskController.updateAll(..))",
             argNames = "concTaskDtos")
       public void validateUpdateConcreteTaskDtos(JoinPoint joinPoint)
       {
+            validateSetField(joinPoint);
+
+      }
+
+      /*
+       * 
+       * PRIVATE METHODS
+       * 
+       */
+
+      private void validateFields(JoinPoint joinPoint)
+      {
+            ConcreteTaskDto concreteTaskDto = (ConcreteTaskDto)joinPoint.getArgs()[0];
+            Set<ConstraintViolation<@Valid ConcreteTaskDto>> constraints = fieldValidator.validate(concreteTaskDto,Default.class);
+            if (!constraints.isEmpty())
+            {
+                  putLogErr(concreteTaskDto);
+                  throw new TaskFieldsException(constraints.stream()
+                                                           .map(ConstraintViolation::getMessage)
+                                                           .collect(joining("\n")));
+            }
+      }
+
+      private void validateSetField(JoinPoint joinPoint)
+      {
             @SuppressWarnings("unchecked")
-            Set<ConcreteTaskDto> setOfConcreteTaskDto = (Set<ConcreteTaskDto>)joinPoint.getArgs()[0];
+            Set<? extends ConcreteTaskDto> setOfConcreteTaskDto = (Set<ConcreteTaskDto>)joinPoint.getArgs()[0];
             setOfConcreteTaskDto.forEach(concTaskDto->
                   {
-                        Set<ConstraintViolation<@Valid ConcreteTaskDto>> constraints = fieldValidator.validate((ConcreteTaskDto)setOfConcreteTaskDto,
-                                                                                                               Default.class);
+                        Set<ConstraintViolation<ConcreteTaskDto>> constraints = fieldValidator.validate((ConcreteTaskDto)setOfConcreteTaskDto,
+                                                                                                        Default.class);
 
                         if (!constraints.isEmpty())
                         {
@@ -72,20 +104,6 @@ public class FieldValidators
                                                                        .collect(joining("\n")));
                         }
                   });
-
-      }
-
-      private void validateFields(JoinPoint joinPoint)
-      {
-            ConcreteTaskDto concreteTaskDto = (ConcreteTaskDto)joinPoint.getArgs()[0];
-            Set<ConstraintViolation<@Valid ConcreteTaskDto>> constraints = fieldValidator.validate(concreteTaskDto,Default.class);
-            if (!constraints.isEmpty())
-            {
-                  putLogErr(concreteTaskDto);
-                  throw new TaskFieldsException(constraints.stream()
-                                                           .map(ConstraintViolation::getMessage)
-                                                           .collect(joining("\n")));
-            }
       }
 
       private void putLogErr(ConcreteTaskDto concreteTaskDto)
