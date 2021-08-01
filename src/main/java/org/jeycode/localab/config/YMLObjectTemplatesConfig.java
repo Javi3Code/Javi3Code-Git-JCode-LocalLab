@@ -1,6 +1,6 @@
 package org.jeycode.localab.config;
 
-import java.util.List;
+import static java.util.Arrays.asList;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
@@ -59,7 +59,7 @@ public class YMLObjectTemplatesConfig
                                        .build();
 
             return AppConfigObj.builder()
-                               .workspaces(List.of("C://SampleDir","C://OtherSampleWorkspace"))
+                               .workspaces(asList("C://SampleDir","C://OtherSampleWorkspace"))
                                .origin(originDir)
                                .commandsSessionStorage(10)
                                .age(3600)
@@ -70,36 +70,36 @@ public class YMLObjectTemplatesConfig
       @Bean @Scope("singleton")
       public ConcreteTaskDto concreteTaskObjTemplate()
       {
-            HtmlFileDto htmlFilesOne = new HtmlFileDto(LocaleRef.es_ES,List.of("htmlSample.html","htmlSample2.html"));
-            HtmlFileDto htmlFilesTwo = new HtmlFileDto(LocaleRef.ALL,List.of("htmlSample.html","htmlSample2.html"));
+            HtmlFileDto htmlFilesOne = new HtmlFileDto(LocaleRef.es_ES,asList("htmlSample.html","htmlSample2.html"));
+            HtmlFileDto htmlFilesTwo = new HtmlFileDto(LocaleRef.ALL,asList("htmlSample.html","htmlSample2.html"));
 
-            HtmlDto html = new HtmlDto("/htmlSampleSubDir",List.of(htmlFilesOne,htmlFilesTwo));
+            HtmlDto html = new HtmlDto("/htmlSampleSubDir",asList(htmlFilesOne,htmlFilesTwo));
             CssFileDto css = CssFileDto.builder()
                                        .genericPath("/cssSampleSubDir")
-                                       .files(List.of("cssfilesample.css"))
+                                       .files(asList("cssfilesample.css"))
                                        .build();
 
             JsFileDto js = JsFileDto.builder()
                                     .genericPath("/jsSampleSubDir")
-                                    .files(List.of("jsfilesample.js"))
+                                    .files(asList("jsfilesample.js"))
                                     .build();
 
             ImgFileDto img = ImgFileDto.builder()
                                        .genericPath("/imgSampleSubDir")
-                                       .files(List.of("imgfilesample.svg"))
+                                       .files(asList("imgfilesample.svg"))
                                        .build();
 
             DocFileDto doc = DocFileDto.builder()
                                        .genericPath("/docSampleSubDir")
-                                       .files(List.of("docfilesample.pdf"))
+                                       .files(asList("docfilesample.pdf"))
                                        .build();
 
             TaskFilesDto taskfile = TaskFilesDto.builder()
-                                                .html(List.of(html))
-                                                .js(List.of(js))
-                                                .css(List.of(css))
-                                                .img(List.of(img))
-                                                .doc(List.of(doc))
+                                                .html(asList(html))
+                                                .js(asList(js))
+                                                .css(asList(css))
+                                                .img(asList(img))
+                                                .doc(asList(doc))
                                                 .build();
 
             return new ConcreteTaskDto("WP-SampleTask",

@@ -1,8 +1,5 @@
 package org.jeycode.localab;
 
-import java.io.File;
-
-import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
 import org.jeycode.localab.taskmodel.err.TaskFieldsException;
 import org.jeycode.localab.taskmodel.err.TaskModelException;
@@ -11,7 +8,7 @@ import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
-import org.jeycode.localab.ymlobjtemplates.YmlObjTemplates;
+import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,10 +42,10 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 
 //          templates.exportAppConfigYmlTemplate();
 //            templates.exportConcreteTaskYmlTemplate();
-            ConcreteTaskYmlMapper mapper = new ConcreteTaskYmlMapper();
-            ConcreteTaskDto concTask;
-            concTask = mapper.loadYmlFile(new File("concretetasksample.yml"));// System.out.println(concTask);
-            showData(concTask);
+//            ConcreteTaskYmlMapper mapper = new ConcreteTaskYmlMapper();
+//            ConcreteTaskDto concTask;
+//            concTask = mapper.loadYmlFile(new File("concretetasksample.yml"));// System.out.println(concTask);
+//            showData(concTask);
       }
 
       private void showData(ConcreteTaskDto concTask)

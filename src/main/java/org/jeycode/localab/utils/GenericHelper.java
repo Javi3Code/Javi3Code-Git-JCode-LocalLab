@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.function.Predicate;
 
 public interface GenericHelper
 {
@@ -11,8 +12,12 @@ public interface GenericHelper
       /**
        * Constants
        */
+      String EMPTY_STRING = "";
+      String Generic_SLASH = File.separator;
+      String Rigth_SLASH = "/";
+      String Left_SALSH = "\\";
 
-      char SLASH = File.separatorChar;
+      Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
 
       /**
        * dates

@@ -1,4 +1,4 @@
-package org.jeycode.localab.ymlobjtemplates;
+package org.jeycode.localab.utils.ymltemplate;
 
 import static org.jeycode.localab.loader.GenericYmlMapper.writeYmlFile;
 
