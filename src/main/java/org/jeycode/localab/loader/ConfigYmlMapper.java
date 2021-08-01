@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.taskmodel.model.YMLObj;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -31,7 +30,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component(value = CONFIGMAPPER)
-@Primary
 public class ConfigYmlMapper implements GenericYmlMapper
 {
 

@@ -69,7 +69,7 @@ public interface GenericYmlMapper
        * @throws JsonMappingException
        * @throws IOException
        */
-      default void writeYmlFile(File file,Object obj) throws JsonGenerationException,JsonMappingException,IOException
+      static void writeYmlFile(File file,Object obj) throws JsonGenerationException,JsonMappingException,IOException
       {
             objMapper.writerWithDefaultPrettyPrinter()
                      .writeValue(file,obj);
