@@ -8,6 +8,7 @@ import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
+import org.jeycode.localab.utils.files.LabFilesHelper;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +30,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final ConcreteTaskAccessService service;
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
+      private final LabFilesHelper filesHelper;
 
       public static void main(String[] args)
       {
