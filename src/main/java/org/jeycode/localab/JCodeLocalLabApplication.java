@@ -1,5 +1,8 @@
 package org.jeycode.localab;
 
+import java.nio.file.Paths;
+
+import org.jeycode.localab.filesworker.LabFileWorker;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
 import org.jeycode.localab.taskmodel.err.TaskFieldsException;
 import org.jeycode.localab.taskmodel.err.TaskModelException;
@@ -31,6 +34,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
       private final LabFilesHelper filesHelper;
+      private final LabFileWorker worker;
 
       public static void main(String[] args)
       {
@@ -48,6 +52,9 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 //            ConcreteTaskDto concTask;
 //            concTask = mapper.loadYmlFile(new File("concretetasksample.yml"));// System.out.println(concTask);
 //            showData(concTask);
+
+            worker.copyFile(Paths.get("C:\\Users\\JAVIER\\Desktop\\Databases\\MySql_DATABASE\\Personas.sql"),
+                            Paths.get("C:\\Users\\JAVIER\\Desktop\\adasd\\Personas.sql"));
       }
 
       private void showData(ConcreteTaskDto concTask)
