@@ -18,6 +18,17 @@ public interface GenericHelper
       String Rigth_SLASH = "/";
       String Left_SALSH = "\\";
 
+      /*
+       * Dir Task Model Structure
+       */
+      String PARENT_TASKFILES_DIR = "Work_Files";
+      String ORIGIN_BACKUP = "origin_backup";
+      String TASK_BACKUP = "task_backup";
+// Hasta aquí mismo nivel detro del dir de la tarea
+      String RESOURCES = "resources";
+//Hasta aquí las carpetas para cada recurso - Las que no vemos aquí son las del Enum -> FileExtension
+//Dentro de la carpeta html se usaran los locales para crear otras 3 si es lo que se quiere, usando el Enum LocaleRef
+
       Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
       Predicate<List<?>> isEmptyLst = List::isEmpty;
 

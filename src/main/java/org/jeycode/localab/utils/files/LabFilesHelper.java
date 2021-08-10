@@ -1,15 +1,7 @@
 package org.jeycode.localab.utils.files;
 
-import static org.springframework.util.StringUtils.getFilenameExtension;
-
-import java.io.File;
-import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.EnumMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Stream;
 
 import org.jeycode.localab.config.GenericUtilsConfig;
 
@@ -25,19 +17,13 @@ import org.jeycode.localab.config.GenericUtilsConfig;
  * 
  * @author Javier Pérez Alonso
  *
- *         5 ago. 2021
+ *         5 ago. 2021 
  *
  */
-public class LabFilesHelper
+public class LabFilesHelper implements LabFilesStaticHelper
 {
 
-      public final LabFilesValidator dirValidator = paths-> Stream.of(paths)
-                                                                  .map(Path::toFile)
-                                                                  .allMatch(File::isDirectory);
-
-      public final LabFilesValidator fileValidator = paths-> Stream.of(paths)
-                                                                   .map(Path::toFile)
-                                                                   .allMatch(File::isFile);
+   
 
       public boolean isHtml(String filePath)
       {
@@ -64,19 +50,6 @@ public class LabFilesHelper
             return isValidFileExtension(filePath,FileExtension.IMG);
       }
 
-      public boolean isValidFileExtension(String filePath,FileExtension fileExtension)
-      {
-            return fileExtensionMap.get(fileExtension)
-                                   .contains(getFilenameExtension(filePath));
-      }
-
-      public boolean checkIfExistsThis(Path path)
-      {
-            return path.toFile()
-                       .exists();
-      }
-
-      Map<FileExtension,Set<String>> fileExtensionMap = new EnumMap<>(FileExtension.class);
 
       public void loadEnumMapValues()
       {
@@ -90,24 +63,4 @@ public class LabFilesHelper
 
       }
 
-      public enum FileExtension
-      {
-       HTML,
-       CSS,
-       JS,
-       IMG,
-       DOC
-      }
-
-      public boolean generateTaskSimpleStructure()
-      {
-            // TODO Auto-generated method stub
-            return false;
-      }
-
-      public boolean generateTaskDefaultStructure()
-      {
-            // TODO Auto-generated method stub
-            return false;
-      }
 }

@@ -2,6 +2,8 @@ package org.jeycode.localab.filesworker;
 
 import java.nio.file.Path;
 
+import org.jeycode.localab.utils.GenericHelper;
+
 /**
  * 
  * Interface que determina el contrato a firmar por las clases que se encargarán
@@ -12,15 +14,15 @@ import java.nio.file.Path;
  *         5 ago. 2021
  *
  */
-public interface FileWorker
+public interface FileWorker extends GenericHelper
 {
 
-      boolean createTaskModelStructure(Path path,boolean allLocalesDir);
+      Boolean createTaskModelStructure(Path path,boolean allLocalesDir);
 
       boolean deleteTaskModelStructure(Path path);
 
-      boolean copyFile(Path source,Path target);
+      Boolean copyFile(Path source,Path target);
 
-      boolean copyDir(Path source,Path target);
+      Boolean copyDir(Path source,Path target);
 
 }

@@ -1,14 +1,9 @@
 package org.jeycode.localab.config;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * 
@@ -21,18 +16,26 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 
 @Configuration
-@EnableAsync
+@EnableAsync(proxyTargetClass = true)
 public class AsyncConfig
 {
 
-      @Bean
-      public ExecutorService threadPoolExecutor()
-      {
+      private static final int AVAILABLE_PROCESSORS = Runtime.getRuntime()
+                                                             .availableProcessors();
 
-            int availableProcessors = Runtime.getRuntime()
-                                             .availableProcessors();
-            BlockingQueue<Runnable> workQueue = new LinkedBlockingDeque<>(availableProcessors + 2);
-            return new ThreadPoolExecutor(availableProcessors,availableProcessors + 2,2,TimeUnit.SECONDS,workQueue);
+      @Bean(destroyMethod = "destroy")
+      public ThreadPoolTaskExecutor threadPoolTaskExecutor()
+      {
+            ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+            executor.setKeepAliveSeconds(1);
+            executor.setThreadPriority(Thread.MAX_PRIORITY);
+            executor.setMaxPoolSize(AVAILABLE_PROCESSORS + 2);
+            executor.setQueueCapacity(AVAILABLE_PROCESSORS + 2);
+            executor.setCorePoolSize(4);
+            executor.setThreadGroupName("Application-Task");
+            executor.setThreadNamePrefix("Jey-Code-Thread");
+            executor.initialize();
+            return executor;
       }
 
 }
