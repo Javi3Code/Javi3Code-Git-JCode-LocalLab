@@ -24,7 +24,7 @@ public class YmlObjTemplates
 
       public void exportAppConfigYmlTemplate() throws JsonGenerationException,JsonMappingException,IOException
       {
-            writeYmlFile(new File("configSample.yml"),appConfigObj);
+            writeYmlFile(new File("sample_config.yml"),appConfigObj);
 
       }
 

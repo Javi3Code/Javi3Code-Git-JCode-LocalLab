@@ -1,9 +1,11 @@
 package org.jeycode.localab.configmodel;
 
 import java.util.List;
+import java.util.Set;
 
 import org.jeycode.localab.configmodel.thememodel.Theme;
 import org.jeycode.localab.taskmodel.model.YMLObj;
+import org.jeycode.localab.utils.LocaleRef;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +30,7 @@ public class AppConfigObj implements YMLObj
 {
 
       private List<String> workspaces;
+      private Set<LocaleRef> localeRefs;
       private OriginDir origin;
       private int commandsSessionStorage,age;
       private Theme theme;

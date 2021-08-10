@@ -40,17 +40,6 @@ public interface LabFilesStaticHelper
                                                                                 .distinct()
                                                                                 .count());
 
-      default boolean isValidFileExtension(String filePath,FileExtension fileExtension)
-      {
-            return fileExtensionMap.get(fileExtension)
-                                   .contains(getFilenameExtension(filePath));
-      }
-
-      default boolean checkIfExistsThis(Path path)
-      {
-            return path.toFile()
-                       .exists();
-      }
 
       Map<FileExtension,Set<String>> fileExtensionMap = new EnumMap<>(FileExtension.class);
 
@@ -61,6 +50,18 @@ public interface LabFilesStaticHelper
        JS,
        IMG,
        DOC
+      }
+      
+     static boolean isValidFileExtension(String filePath,FileExtension fileExtension)
+      {
+            return fileExtensionMap.get(fileExtension)
+                                   .contains(getFilenameExtension(filePath));
+      }
+
+      static boolean checkIfExistsThis(Path path)
+      {
+            return path.toFile()
+                       .exists();
       }
 
 }

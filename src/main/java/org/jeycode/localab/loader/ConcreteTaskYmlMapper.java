@@ -2,12 +2,12 @@ package org.jeycode.localab.loader;
 
 import static org.jeycode.localab.loader.GenericYmlMapper.CONCRETETASKFILEMAPPER;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.jeycode.localab.taskmodel.model.TaskFiles;
 import org.jeycode.localab.taskmodel.model.YMLObj;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -30,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component(CONCRETETASKFILEMAPPER)
+@Scope("singleton")
 public class ConcreteTaskYmlMapper implements GenericYmlMapper
 {
 
@@ -40,7 +41,7 @@ public class ConcreteTaskYmlMapper implements GenericYmlMapper
       }
 
       @Override
-      public ConcreteTaskDto loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
+      public ConcreteTaskDto loadYmlFile(String file) throws JsonParseException,JsonMappingException,IOException
       {
             return (ConcreteTaskDto)GenericYmlMapper.super.loadYmlFile(file);
       }

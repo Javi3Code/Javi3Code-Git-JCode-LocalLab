@@ -1,5 +1,7 @@
 package org.jeycode.localab.utils.files;
 
+import static org.jeycode.localab.utils.files.LabFilesStaticHelper.isValidFileExtension;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -17,44 +19,40 @@ import org.jeycode.localab.config.GenericUtilsConfig;
  * 
  * @author Javier Pérez Alonso
  *
- *         5 ago. 2021 
+ *         5 ago. 2021
  *
  */
 public class LabFilesHelper implements LabFilesStaticHelper
 {
 
-   
-
-      public boolean isHtml(String filePath)
+      public static boolean isHtml(String filePath)
       {
             return isValidFileExtension(filePath,FileExtension.HTML);
       }
 
-      public boolean isCss(String filePath)
+      public static boolean isCss(String filePath)
       {
             return isValidFileExtension(filePath,FileExtension.CSS);
       }
 
-      public boolean isJS(String filePath)
+      public static boolean isJS(String filePath)
       {
             return isValidFileExtension(filePath,FileExtension.JS);
       }
 
-      public boolean isDoc(String filePath)
+      public static boolean isDoc(String filePath)
       {
             return isValidFileExtension(filePath,FileExtension.DOC);
       }
 
-      public boolean isImg(String filePath)
+      public static boolean isImg(String filePath)
       {
             return isValidFileExtension(filePath,FileExtension.IMG);
       }
 
-
-      public void loadEnumMapValues()
+      static
       {
-            FileExtension html = FileExtension.HTML;
-            fileExtensionMap.put(html,new HashSet<>(Arrays.asList("html","htm")));
+            fileExtensionMap.put(FileExtension.HTML,new HashSet<>(Arrays.asList("html","htm")));
             fileExtensionMap.put(FileExtension.CSS,new HashSet<>(Arrays.asList("css","sass")));
             fileExtensionMap.put(FileExtension.JS,new HashSet<>(Arrays.asList("js","ts")));
             fileExtensionMap.put(FileExtension.IMG,new HashSet<>(Arrays.asList("jpg","png","jpeg","svg")));

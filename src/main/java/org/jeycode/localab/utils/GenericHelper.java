@@ -7,47 +7,53 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Predicate;
 
-public interface GenericHelper
+import org.jeycode.localab.configmodel.AppConfigObj;
+
+public class GenericHelper
 {
+
+      public static AppConfigObj applicationConfigObj;
 
       /**
        * Constants
        */
-      String EMPTY_STRING = "";
-      String Generic_SLASH = File.separator;
-      String Rigth_SLASH = "/";
-      String Left_SALSH = "\\";
+      public static String EMPTY_STRING = "";
+      public static String Generic_SLASH = File.separator;
+      public static String Rigth_SLASH = "/";
+      public static String Left_SALSH = "\\";
+      public static String SUFFIX_CONFIG_YML = "_config.yml";
 
       /*
        * Dir Task Model Structure
        */
-      String PARENT_TASKFILES_DIR = "Work_Files";
-      String ORIGIN_BACKUP = "origin_backup";
-      String TASK_BACKUP = "task_backup";
+      public static String PARENT_TASKFILES_DIR = "Work_Files";
+      public static String ORIGIN_BACKUP = "origin_backup";
+      public static String TASK_BACKUP = "task_backup";
 // Hasta aquí mismo nivel detro del dir de la tarea
-      String RESOURCES = "resources";
+      public static String RESOURCES = "resources";
 //Hasta aquí las carpetas para cada recurso - Las que no vemos aquí son las del Enum -> FileExtension
 //Dentro de la carpeta html se usaran los locales para crear otras 3 si es lo que se quiere, usando el Enum LocaleRef
 
-      Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
-      Predicate<List<?>> isEmptyLst = List::isEmpty;
+      public static Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
+      public static Predicate<List<?>> isEmptyLst = List::isEmpty;
 
       /**
        * dates
        */
 
-      DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy hh:mm:ss");
-      DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy");
+      public static DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy hh:mm:ss");
+      public static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy");
 
-      static String dateTimeFormattedToString()
+      public static String dateTimeFormattedToString()
       {
             return LocalDateTime.now()
                                 .format(DATE_TIME_FORMATTER);
       }
 
-      static String dateFormattedToString()
+      public static String dateFormattedToString()
       {
             return LocalDate.now()
                             .format(DATE_FORMATTER);
       }
+
 }

@@ -11,7 +11,10 @@ origin:
 workspaces:
       -  C:\Users\JAVIER\Desktop\dir-loc
       -  C:\Users\JAVIER\Desktop\dir-loc2
-
+localeRefs:
+      - es_ES
+      - en_US
+      - eu_ES
 
 #A la hora de escribir comandos se guardaran N números de commandos con éxito realizados durante la sesión.
 #Un valor negativo o 0 equivale a no guardar ningun valor.

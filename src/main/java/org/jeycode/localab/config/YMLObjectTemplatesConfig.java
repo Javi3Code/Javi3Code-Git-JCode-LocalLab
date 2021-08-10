@@ -2,6 +2,8 @@ package org.jeycode.localab.config;
 
 import static java.util.Arrays.asList;
 
+import java.util.HashSet;
+
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
 import org.jeycode.localab.configmodel.thememodel.AppColor;
@@ -60,6 +62,7 @@ public class YMLObjectTemplatesConfig
 
             return AppConfigObj.builder()
                                .workspaces(asList("C://SampleDir","C://OtherSampleWorkspace"))
+                               .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.en_US)))
                                .origin(originDir)
                                .commandsSessionStorage(10)
                                .age(3600)

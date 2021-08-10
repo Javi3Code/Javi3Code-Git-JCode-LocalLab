@@ -1,6 +1,5 @@
 package org.jeycode.localab;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,9 +61,9 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 //            ymlTemplateProof();
 //            executorCopyFileProof();
 
-            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\simple"),false);
-            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\complex"),true);
-            executor.destroy();
+//            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\simple"),false);
+//            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\complex"),true);
+//            executor.destroy();
 
       }
 
@@ -74,7 +73,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
             templates.exportConcreteTaskYmlTemplate();
             ConcreteTaskYmlMapper mapper = new ConcreteTaskYmlMapper();
             ConcreteTaskDto concTask;
-            concTask = mapper.loadYmlFile(new File("concretetasksample.yml"));// System.out.println(concTask);
+            concTask = mapper.loadYmlFile("concretetasksample.yml");// System.out.println(concTask);
             showData(concTask);
       }
 

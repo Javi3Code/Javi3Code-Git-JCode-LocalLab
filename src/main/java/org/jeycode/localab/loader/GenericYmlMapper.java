@@ -54,9 +54,9 @@ public interface GenericYmlMapper
        * @throws JsonMappingException
        * @throws IOException
        */
-      default YMLObj loadYmlFile(File file) throws JsonParseException,JsonMappingException,IOException
+      default YMLObj loadYmlFile(String file) throws JsonParseException,JsonMappingException,IOException
       {
-            return objMapper.readValue(file,getClassObjToReturn());
+            return objMapper.readValue(new File(file),getClassObjToReturn());
       }
 
       /**
