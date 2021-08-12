@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import org.jeycode.localab.commandmodel.validator.CommandOrParameterValidator;
 import org.jeycode.localab.filesworker.LabFileWorker;
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
@@ -17,7 +18,6 @@ import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
-import org.jeycode.localab.utils.files.LabFilesHelper;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -44,9 +44,9 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final ConcreteTaskAccessService service;
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
-      private final LabFilesHelper filesHelper;
       private final LabFileWorker worker;
       private final ThreadPoolTaskExecutor executor;
+      private final CommandOrParameterValidator validator;
 
       public static void main(String[] args)
       {
@@ -64,6 +64,8 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 //            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\simple"),false);
 //            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\complex"),true);
 //            executor.destroy();
+            validator.validateCommand("push");
+            validator.validateCommand("asdad");
 
       }
 

@@ -18,6 +18,8 @@ public class GenericHelper
        * Constants
        */
       public static String EMPTY_STRING = "";
+      public static char EMPTY_CHAR = '\0';
+      public static char PARAMETER_INDICATOR='-';
       public static String Generic_SLASH = File.separator;
       public static String Rigth_SLASH = "/";
       public static String Left_SALSH = "\\";

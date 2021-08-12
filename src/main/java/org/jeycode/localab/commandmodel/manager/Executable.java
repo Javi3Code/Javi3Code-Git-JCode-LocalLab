@@ -1,4 +1,4 @@
-package org.jeycode.localab.commandmodel.contract;
+package org.jeycode.localab.commandmodel.manager;
 
 import java.util.concurrent.CompletableFuture;
 

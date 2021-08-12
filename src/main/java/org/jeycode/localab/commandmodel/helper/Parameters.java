@@ -9,7 +9,8 @@ package org.jeycode.localab.commandmodel.helper;
  *         11 ago. 2021
  *
  */
-public interface Parameters
+public @interface Parameters
 {
+      
 
 }
