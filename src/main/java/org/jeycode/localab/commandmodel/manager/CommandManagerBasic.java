@@ -29,20 +29,16 @@ public class CommandManagerBasic implements CommandManager
       @Override
       public Set<String> getAllCommands()
       {
-            return null;
+            return commandWrapperMap.keySet();
       }
 
       @Override
       public Set<String> getAllParametersOfThisCommand(String command)
       {
-            return null;
+            return commandWrapperMap.get(command)
+                                    .getParameters();
       }
 
-      @Override
-      public Map<String,String> getCommandsInfo()
-      {
-            return null;
-      }
 
       private void loadCommandWrapperMap()
       {}

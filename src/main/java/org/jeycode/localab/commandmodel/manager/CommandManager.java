@@ -2,6 +2,9 @@ package org.jeycode.localab.commandmodel.manager;
 
 import static org.jeycode.localab.utils.GenericHelper.PARAMETER_INDICATOR;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -61,11 +64,15 @@ public interface CommandManager
             return start;
       }
 
-      Map<String,String> getCommandsInfo();
-
-      default String getCommandInfo(String command)
+      default Stream<String> getCommandInfo(String command)
       {
-            return getCommandsInfo().get(command);
+            try
+            {
+                  return Files.lines(Paths.get(String.format("src/main/resources/commands-info/%s.txt",command)));
+            }
+            catch (IOException ex)
+            {}
+            return null;
       }
 
 }

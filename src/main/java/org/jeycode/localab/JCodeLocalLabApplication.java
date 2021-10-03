@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import org.jeycode.localab.commandmodel.manager.CommandManager;
 import org.jeycode.localab.commandmodel.validator.CommandOrParameterValidator;
 import org.jeycode.localab.filesworker.LabFileWorker;
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
@@ -47,6 +48,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final LabFileWorker worker;
       private final ThreadPoolTaskExecutor executor;
       private final CommandOrParameterValidator validator;
+      private final CommandManager manager;
 
       public static void main(String[] args)
       {
@@ -64,8 +66,10 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 //            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\simple"),false);
 //            worker.createTaskModelStructure(Paths.get("C:\\Users\\JAVIER\\Desktop\\complex"),true);
 //            executor.destroy();
-            validator.validateCommand("push");
-            validator.validateCommand("asdad");
+//            validator.validateCommand("push");
+//            validator.validateCommand("asdad");
+//            manager.getCommandInfo("bye")
+//                   .forEach(System.out::println);
 
       }
 

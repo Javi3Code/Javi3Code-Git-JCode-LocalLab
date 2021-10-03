@@ -1,0 +1,6 @@
+Nombre Comando: push
+
+Descripción: Este comando funciona únicamente si existe el contexto(TaskFile/Tarea-concreta),
+    copia los archivos en el repositorio, sobrescribiendo si es necesario.
+    
+Parámetros: Ninguno

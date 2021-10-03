@@ -22,20 +22,4 @@ commandsSessionStorage: 10
 
 #Tiempo en segundos, duración desde que la app pierda el foco hasta que entre en modo sleeping. 
 #Un valor negativo o 0 equivale a no evento sleeping.
-age: 10
-
-#Establecer tema de la app -- Valores RGB(0-250)-Alpha(0.0 - 1.0) ó hex (#ffffff) 
-#De establecer hex será tomado en consideración por encima de rgba.
-theme:
-      bgColor:
-            hex: #212F3D
-            r:
-            g:
-            b:
-            a:
-      fgColor:
-            hex:
-            r:
-            g:
-            b:
-            a:   
+age: 10  

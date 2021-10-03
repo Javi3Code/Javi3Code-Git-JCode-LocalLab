@@ -3,7 +3,6 @@ package org.jeycode.localab.commandmodel;
 import java.util.Set;
 
 import org.jeycode.localab.commandmodel.helper.Commands;
-import org.jeycode.localab.commandmodel.helper.Parameters;
 import org.jeycode.localab.commandmodel.manager.Executable;
 
 import lombok.Builder;
@@ -16,7 +15,6 @@ import lombok.Setter;
  * operación-comando/parámetros.
  * 
  * @see Commands
- * @see Parameters
  * 
  * @author Javier Pérez Alonso
  *

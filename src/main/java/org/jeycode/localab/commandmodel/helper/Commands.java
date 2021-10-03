@@ -20,8 +20,7 @@ public interface Commands
       /*
        * Dormir/Ocultar la app
        */
-      String SLEEP = "hide";
-
+      String SLEEP = "sleep";
       /*
        * Limpiar la ventana de logs si está abierta.
        */
@@ -33,11 +32,11 @@ public interface Commands
       /*
        * Desplegar la ventan de logs.
        */
-      String OPEN_LOG_WINDOW = "oplg";
+      String OPEN_LOG_WINDOW = "winlog";
       /*
        * Relacionado a configuración y ficheros _config.yml
        */
-      String CONFIG = "cfg";
+      String CONFIG = "config";
       /*
        * Obtener del repositorio.
        */
@@ -72,7 +71,7 @@ public interface Commands
        */
       String FIND = "find";
       /*
-       * Exportar un fichero con ejemplos de taskfile, config ocon el listado de
+       * Exportar un fichero con ejemplos de taskfile, config o con el listado de
        * comandos
        */
       String EXPORT = "exp";

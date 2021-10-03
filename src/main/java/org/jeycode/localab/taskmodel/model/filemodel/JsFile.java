@@ -26,7 +26,6 @@ import lombok.ToString;
  * 
  * Entidad --> Archivos js
  * 
- * @see GenericFrontFile
  * @see JsFileDto
  * @see JsFileMapper
  * 

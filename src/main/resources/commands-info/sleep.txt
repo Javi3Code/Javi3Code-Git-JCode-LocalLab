@@ -1,0 +1,5 @@
+Nombre Comando: sleep
+
+Descripción: Dormir/ocultar la aplicación
+
+Parámetros: Ninguno

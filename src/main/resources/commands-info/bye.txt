@@ -1,0 +1,5 @@
+Nombre Comando: bye
+
+Descripción: Este comando ejecuta el apagado de la aplicación
+
+Parámetros: Ninguno

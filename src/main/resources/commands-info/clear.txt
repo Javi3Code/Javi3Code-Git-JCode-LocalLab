@@ -1,0 +1,5 @@
+Nombre Comando: clear
+
+Descripción: Limpia la ventana de logs si está abierta
+
+Parámetros: Ninguno

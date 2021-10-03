@@ -6,8 +6,6 @@ import java.util.HashSet;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
-import org.jeycode.localab.configmodel.thememodel.AppColor;
-import org.jeycode.localab.configmodel.thememodel.Theme;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
@@ -49,16 +47,6 @@ public class YMLObjectTemplatesConfig
                                            .docDir("/docDirSample")
                                            .build();
 
-            AppColor fgColor = AppColor.builder()
-                                       .hex("#212F3D")
-                                       .build();
-
-            AppColor bgColor = AppColor.builder()
-                                       .r(10)
-                                       .g(10)
-                                       .b(10)
-                                       .a(0.5f)
-                                       .build();
 
             return AppConfigObj.builder()
                                .workspaces(asList("C://SampleDir","C://OtherSampleWorkspace"))
@@ -66,7 +54,6 @@ public class YMLObjectTemplatesConfig
                                .origin(originDir)
                                .commandsSessionStorage(10)
                                .age(3600)
-                               .theme(new Theme(bgColor,fgColor))
                                .build();
       }
 
