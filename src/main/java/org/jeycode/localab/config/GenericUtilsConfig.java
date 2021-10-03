@@ -3,8 +3,10 @@ package org.jeycode.localab.config;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
+import org.jeycode.localab.configmodel.AppConfigObj;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class GenericUtilsConfig
@@ -16,7 +18,6 @@ public class GenericUtilsConfig
             return Validation.buildDefaultValidatorFactory()
                              .getValidator();
       }
-
 
 //      @Bean(initMethod = "loadEnumMapValues") @Scope(value = "singleton")
 //      public LabFilesHelper getFilesHelper()

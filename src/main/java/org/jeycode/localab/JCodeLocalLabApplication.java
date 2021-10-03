@@ -70,6 +70,10 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 //            validator.validateCommand("asdad");
 //            manager.getCommandInfo("bye")
 //                   .forEach(System.out::println);
+//            manager.commandWrapperMap()
+//                   .get("bye")
+//                   .getExecutable()
+//                   .execute(null,null);
 
       }
 

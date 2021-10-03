@@ -81,6 +81,11 @@
 			<artifactId>lombok-mapstruct-binding</artifactId>
 			<version>0.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>JeyCode.Animation</groupId>
+			<artifactId>JC.manipulatecomponents</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

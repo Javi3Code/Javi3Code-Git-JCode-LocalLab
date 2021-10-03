@@ -2,8 +2,8 @@ package org.jeycode.localab.commandmodel;
 
 import java.util.Set;
 
+import org.jeycode.localab.commandmodel.executable.Executable;
 import org.jeycode.localab.commandmodel.helper.Commands;
-import org.jeycode.localab.commandmodel.manager.Executable;
 
 import lombok.Builder;
 import lombok.Getter;

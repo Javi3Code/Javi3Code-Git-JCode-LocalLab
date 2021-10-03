@@ -1,5 +1,6 @@
-package org.jeycode.localab.commandmodel.manager;
+package org.jeycode.localab.commandmodel.executable;
 
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -15,6 +16,6 @@ import java.util.concurrent.CompletableFuture;
 public interface Executable
 {
 
-      CompletableFuture<Boolean> execute(String...parameters);
+      CompletableFuture<Boolean> execute(Set<String> parameter,Object...optional);
 
 }

@@ -1,9 +1,10 @@
 package org.jeycode.localab.filesworker;
 
+import static org.jeycode.localab.utils.GenericHelper.ASYNC_EXECUTOR;
 import static org.jeycode.localab.utils.GenericHelper.ORIGIN_BACKUP;
 import static org.jeycode.localab.utils.GenericHelper.PARENT_TASKFILES_DIR;
 import static org.jeycode.localab.utils.GenericHelper.TASK_BACKUP;
-import static org.jeycode.localab.utils.GenericHelper.applicationConfigObj;
+import static org.jeycode.localab.utils.ApplicationContext.applicationConfigObj;
 import static org.jeycode.localab.utils.files.LabFilesStaticHelper.checkIfExistsThis;
 import static org.jeycode.localab.utils.files.LabFilesStaticHelper.reentrantLock;
 
@@ -26,7 +27,6 @@ import org.springframework.util.FileSystemUtils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 /**
  * 
  * Clase que se encarga de los trabajos pesados con archivos o directorios.
@@ -46,7 +46,7 @@ import lombok.extern.slf4j.Slf4j;
 public class LabFileWorker implements FileWorker
 {
 
-      @Override @Async("threadPoolTaskExecutor")
+      @Override @Async(ASYNC_EXECUTOR)
       public CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyFile(source,target));
@@ -73,7 +73,7 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override @Async("threadPoolTaskExecutor")
+      @Override @Async(ASYNC_EXECUTOR)
       public CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyDir(source,target));
@@ -86,7 +86,7 @@ public class LabFileWorker implements FileWorker
             return copyWithValidation(source,target,LabFilesStaticHelper.allPathsAreDirValidator);
       }
 
-      @Override @Async("threadPoolTaskExecutor")
+      @Override @Async(ASYNC_EXECUTOR)
       public CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelStructure(path,allLocalesDir));
@@ -128,7 +128,7 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override @Async("threadPoolTaskExecutor")
+      @Override @Async(ASYNC_EXECUTOR)
       public CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
       {
             return CompletableFuture.supplyAsync(()-> deleteTaskModelStructure(path));
@@ -158,7 +158,7 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Async("threadPoolTaskExecutor") @Override
+      @Async(ASYNC_EXECUTOR) @Override
       public CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelSpecializedStructure(path,extension));

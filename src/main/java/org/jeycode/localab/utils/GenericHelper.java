@@ -9,42 +9,45 @@ import java.util.function.Predicate;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 
-public class GenericHelper
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
+public final class GenericHelper
 {
 
-      public static AppConfigObj applicationConfigObj;
+      public static final String ASYNC_EXECUTOR = "threadPoolTaskExecutor";
 
       /**
        * Constants
        */
-      public static String EMPTY_STRING = "";
-      public static char EMPTY_CHAR = '\0';
-      public static char PARAMETER_INDICATOR='-';
-      public static String Generic_SLASH = File.separator;
-      public static String Rigth_SLASH = "/";
-      public static String Left_SALSH = "\\";
-      public static String SUFFIX_CONFIG_YML = "_config.yml";
+      public static final String EMPTY_STRING = "";
+      public static final char EMPTY_CHAR = '\0';
+      public static final char PARAMETER_INDICATOR = '-';
+      public static final String Generic_SLASH = File.separator;
+      public static final String Rigth_SLASH = "/";
+      public static final String Left_SALSH = "\\";
+      public static final String SUFFIX_CONFIG_YML = "_config.yml";
 
       /*
        * Dir Task Model Structure
        */
-      public static String PARENT_TASKFILES_DIR = "Work_Files";
-      public static String ORIGIN_BACKUP = "origin_backup";
-      public static String TASK_BACKUP = "task_backup";
+      public static final String PARENT_TASKFILES_DIR = "Work_Files";
+      public static final String ORIGIN_BACKUP = "origin_backup";
+      public static final String TASK_BACKUP = "task_backup";
 // Hasta aquí mismo nivel detro del dir de la tarea
-      public static String RESOURCES = "resources";
+      public static final String RESOURCES = "resources";
 //Hasta aquí las carpetas para cada recurso - Las que no vemos aquí son las del Enum -> FileExtension
 //Dentro de la carpeta html se usaran los locales para crear otras 3 si es lo que se quiere, usando el Enum LocaleRef
 
-      public static Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
-      public static Predicate<List<?>> isEmptyLst = List::isEmpty;
+      public static final Predicate<String[]> arrayOfStringsIsNotEmpty = strArr-> strArr.length > 0;
+      public static final Predicate<List<?>> isEmptyLst = List::isEmpty;
 
       /**
        * dates
        */
 
-      public static DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy hh:mm:ss");
-      public static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy");
+      public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy hh:mm:ss");
+      public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yy");
 
       public static String dateTimeFormattedToString()
       {
