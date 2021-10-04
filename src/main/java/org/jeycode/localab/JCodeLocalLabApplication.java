@@ -1,11 +1,14 @@
 package org.jeycode.localab;
 
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
+
+import javax.swing.JFrame;
 
 import org.jeycode.localab.commandmodel.manager.CommandManager;
 import org.jeycode.localab.commandmodel.validator.CommandOrParameterValidator;
@@ -21,14 +24,15 @@ import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -52,8 +56,15 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 
       public static void main(String[] args)
       {
-            SpringApplication.run(JCodeLocalLabApplication.class,args);
+            new SpringApplicationBuilder(JCodeLocalLabApplication.class).headless(false)
+                                                                        .run(args);
 
+            FlatGitHubDarkIJTheme.setup();
+            JFrame frame = new JFrame();
+            frame.setSize(Toolkit.getDefaultToolkit()
+                                 .getScreenSize());
+            frame.setVisible(true);
+            frame.setDefaultCloseOperation(0);
       }
 
       @Override
