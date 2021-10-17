@@ -25,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public final class CommandWrapper
+public final class CommandWrapper 
 {
 
       private Set<String> parameters;

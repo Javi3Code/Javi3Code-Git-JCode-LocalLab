@@ -27,7 +27,6 @@
 			<version>1.6</version>
 			<scope>runtime</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/com.formdev/flatlaf-intellij-themes -->
 		<dependency>
 			<groupId>com.formdev</groupId>

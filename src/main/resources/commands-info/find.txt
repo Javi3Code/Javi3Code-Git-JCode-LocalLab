@@ -1,5 +1,0 @@
-Nombre Comando: find
-
-Descripción: Buscar y mostrar uno o más taskfile
-
-Parámetros: *

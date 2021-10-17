@@ -1,5 +1,0 @@
-Nombre Comando: updt
-
-Descripción: Actualizar uno o más taskfile de bbdd
-
-Parámetros: *

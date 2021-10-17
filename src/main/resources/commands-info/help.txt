@@ -1,5 +1,0 @@
-Nombre Comando: help
-
-Descripción: Por defecto muestra la lista comandos y sus parámetros
-
-Parámetros: **

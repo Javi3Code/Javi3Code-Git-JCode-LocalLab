@@ -47,7 +47,6 @@ public class YMLObjectTemplatesConfig
                                            .docDir("/docDirSample")
                                            .build();
 
-
             return AppConfigObj.builder()
                                .workspaces(asList("C://SampleDir","C://OtherSampleWorkspace"))
                                .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.en_US)))

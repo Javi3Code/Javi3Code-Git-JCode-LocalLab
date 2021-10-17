@@ -1,6 +1,0 @@
-Nombre Comando: exp
-
-Descripción: Exportar un fichero con ejemplos de taskfile, config o con el listado de 
-    comandos
-
-Parámetros: *

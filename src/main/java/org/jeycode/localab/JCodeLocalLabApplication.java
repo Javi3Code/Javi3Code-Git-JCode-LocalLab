@@ -1,5 +1,6 @@
 package org.jeycode.localab;
 
+import java.awt.Container;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -8,7 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import org.jeycode.localab.commandmodel.manager.CommandManager;
 import org.jeycode.localab.commandmodel.validator.CommandOrParameterValidator;
@@ -23,6 +27,9 @@ import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
+import org.jeycode.localab.view.events.JC_Axis;
+import org.jeycode.localab.view.events.JCLaboComponentSlideEvent;
+import org.jeycode.localab.view.events.SlideEvent;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -54,6 +61,8 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final CommandOrParameterValidator validator;
       private final CommandManager manager;
 
+      private static int index = 0;
+
       public static void main(String[] args)
       {
             new SpringApplicationBuilder(JCodeLocalLabApplication.class).headless(false)
@@ -63,8 +72,54 @@ public class JCodeLocalLabApplication implements CommandLineRunner
             JFrame frame = new JFrame();
             frame.setSize(Toolkit.getDefaultToolkit()
                                  .getScreenSize());
+            JButton btn = new JButton("push");
+            JCheckBox check = new JCheckBox("asadasd");
+            check.setBounds(300,300,1000,1000);
+            JCLaboComponentSlideEvent slideEvent = new JCLaboComponentSlideEvent(check,SlideEvent.POSITION_OPEN,JC_Axis.X_AXIS,2000,1,1,null);
+            btn.addActionListener(ev->
+                  {
+                        if (slideEvent.isRunning())
+                        {
+                              System.out.println("Cambiamos de dirección");
+                              slideEvent.changeSlideDirection();
+                        }
+                        else
+                        {
+                              slideEvent.start();
+                        }
+//                        Class<?> forName;
+//                        try
+//                        {
+//                              forName = Class.forName(Arrays.asList(FlatAllIJThemes.INFOS)
+//                                                            .get(index)
+//                                                            .getClassName());
+//                              forName.getMethod("setup",null)
+//                                     .invoke(null,null);
+//                              SwingUtilities.updateComponentTreeUI(frame);
+//                              index++;
+//                        }
+//                        catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException |
+//                              NoSuchMethodException | SecurityException ex)
+//                        {
+//                              ex.printStackTrace();
+//                        }
+
+                  });
+//            JEditorPane editor= new JEditorPane();
+//            JTextArea area=new JTextArea("asdadadadsda");
+//            editor.setBorder(new BevelBorder(BevelBorder.RAISED));
+//            editor.setBackground(Color.gray);
+
+            btn.setSize(200,100);
+            btn.setLocation(200,200);
+
+            Container contentPane = frame.getContentPane();
+            contentPane.setLayout(null);
+            contentPane.add(btn);
+            contentPane.add(check);
             frame.setVisible(true);
-            frame.setDefaultCloseOperation(0);
+
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       }
 
       @Override

@@ -1,5 +1,0 @@
-Nombre Comando: config
-
-Descripción: **
-
-Parámetros: **

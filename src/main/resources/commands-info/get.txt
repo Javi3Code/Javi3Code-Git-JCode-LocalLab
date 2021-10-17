@@ -1,7 +1,0 @@
-Nombre Comando: get
-
-Descripción: Este comando funciona únicamente si existe el contexto(TaskFile/Tarea-concreta),
-     obtiene el/los archivos del repositorio, si en el dir target se encuentran actualmente se pregunta
-     si deben sobrescribirse (y/n)
-     
-Parámetros: **

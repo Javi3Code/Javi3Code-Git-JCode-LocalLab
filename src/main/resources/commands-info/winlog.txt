@@ -1,5 +1,0 @@
-Nombre Comando: winlog
-
-Descripción: Este comando abre la ventana de logs
-
-Parámetros: **

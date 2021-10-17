@@ -1,5 +1,0 @@
-Nombre Comando: del
-
-Descripción: Borrar un TaskModelDir físico o uno o más taskfile de bbdd
-
-Parámetros: *

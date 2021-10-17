@@ -54,7 +54,7 @@ public class LabFilesHelper implements LabFilesStaticHelper
       {
             fileExtensionMap.put(FileExtension.HTML,new HashSet<>(Arrays.asList("html","htm")));
             fileExtensionMap.put(FileExtension.CSS,new HashSet<>(Arrays.asList("css","sass")));
-            fileExtensionMap.put(FileExtension.JS,new HashSet<>(Arrays.asList("js","ts")));
+            fileExtensionMap.put(FileExtension.JS,new HashSet<>(Arrays.asList("js","ts","json")));
             fileExtensionMap.put(FileExtension.IMG,new HashSet<>(Arrays.asList("jpg","png","jpeg","svg")));
             fileExtensionMap.put(FileExtension.DOC,
                                  new HashSet<>(Arrays.asList("pdf","docx","txt","xlsx","xls","yml","json","xml","ppt","pptx")));

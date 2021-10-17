@@ -1,5 +1,0 @@
-Nombre Comando: show
-
-Descripción: Mostrar en ventana de logs el contenido de un taskfile
-
-Parámetros: *

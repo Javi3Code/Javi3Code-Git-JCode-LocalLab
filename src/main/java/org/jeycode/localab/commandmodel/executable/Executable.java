@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
  *
  */
 @FunctionalInterface
-public interface Executable
+public interface Executable 
 {
 
       CompletableFuture<Boolean> execute(Set<String> parameter,Object...optional);

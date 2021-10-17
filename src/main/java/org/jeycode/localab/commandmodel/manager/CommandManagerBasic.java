@@ -59,9 +59,8 @@ public class CommandManagerBasic implements CommandManager
             commandWrapperMap.put(CLOSE,close);
 
             CommandWrapper sleep = CommandWrapper.builder()
-
                                                  .build();
 
-      }
+      } 
 
 }
