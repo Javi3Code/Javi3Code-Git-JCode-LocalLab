@@ -4,22 +4,13 @@ import static org.jeycode.localab.view.utils.Views.MAX_HEIGHT;
 import static org.jeycode.localab.view.utils.Views.MAX_WIDTH;
 import static org.jeycode.localab.view.utils.Views.screenDimension;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Rectangle;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
-import javax.swing.border.Border;
 
 import org.jeycode.localab.view.component.panel.PrincipalPanel;
 import org.jeycode.localab.view.events.visualevents.JCLaboComponentSlideEvent;
@@ -28,7 +19,6 @@ import org.jeycode.localab.view.events.visualevents.JC_Axis;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javafx.scene.layout.BorderImage;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
