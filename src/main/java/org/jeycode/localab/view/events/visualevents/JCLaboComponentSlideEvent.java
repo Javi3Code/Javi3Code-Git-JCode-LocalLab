@@ -1,4 +1,4 @@
-package org.jeycode.localab.view.events;
+package org.jeycode.localab.view.events.visualevents;
 
 import java.awt.Component;
 import java.awt.Window;

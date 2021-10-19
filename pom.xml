@@ -20,6 +20,11 @@
 		<jackson.version>2.12.1</jackson.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.ar.slide</groupId>
+			<artifactId>slide-layout</artifactId>
+			<version>0.1</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
 		<dependency>
 			<groupId>com.formdev</groupId>

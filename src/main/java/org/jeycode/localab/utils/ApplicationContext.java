@@ -1,6 +1,7 @@
 package org.jeycode.localab.utils;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
+import org.jeycode.localab.configmodel.Workspace;
 
 import lombok.experimental.UtilityClass;
 
@@ -22,4 +23,5 @@ public class ApplicationContext
 {
 
       public static AppConfigObj applicationConfigObj;
+      public static Workspace activeWorkspace;
 }

@@ -1,10 +1,10 @@
 package org.jeycode.localab.filesworker;
 
+import static org.jeycode.localab.utils.ApplicationContext.activeWorkspace;
 import static org.jeycode.localab.utils.GenericHelper.ASYNC_EXECUTOR;
 import static org.jeycode.localab.utils.GenericHelper.ORIGIN_BACKUP;
 import static org.jeycode.localab.utils.GenericHelper.PARENT_TASKFILES_DIR;
 import static org.jeycode.localab.utils.GenericHelper.TASK_BACKUP;
-import static org.jeycode.localab.utils.ApplicationContext.applicationConfigObj;
 import static org.jeycode.localab.utils.files.LabFilesStaticHelper.checkIfExistsThis;
 import static org.jeycode.localab.utils.files.LabFilesStaticHelper.reentrantLock;
 
@@ -20,13 +20,12 @@ import org.jeycode.localab.utils.LocaleRef;
 import org.jeycode.localab.utils.files.LabFilesStaticHelper;
 import org.jeycode.localab.utils.files.LabFilesStaticHelper.FileExtension;
 import org.jeycode.localab.utils.files.LabFilesValidator;
-import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 import org.springframework.util.FileSystemUtils;
 
-import lombok.RequiredArgsConstructor;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+
 /**
  * 
  * Clase que se encarga de los trabajos pesados con archivos o directorios.
@@ -39,22 +38,19 @@ import lombok.extern.slf4j.Slf4j;
  *         5 ago. 2021
  *
  */
-@Component
-@Scope("prototype")
 @Slf4j
-@RequiredArgsConstructor
-public class LabFileWorker implements FileWorker
+@UtilityClass
+public class LabFileWorker
 {
 
-      @Override @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
+      @Async(ASYNC_EXECUTOR)
+      public static CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyFile(source,target));
 
       }
 
-      @Override
-      public Boolean copyFile(Path source,Path target)
+      public static Boolean copyFile(Path source,Path target)
       {
             try
             {
@@ -73,27 +69,25 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
+      @Async(ASYNC_EXECUTOR)
+      public static CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyDir(source,target));
 
       }
 
-      @Override
-      public Boolean copyDir(Path source,Path target)
+      public static Boolean copyDir(Path source,Path target)
       {
             return copyWithValidation(source,target,LabFilesStaticHelper.allPathsAreDirValidator);
       }
 
-      @Override @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
+      @Async(ASYNC_EXECUTOR)
+      public static CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelStructure(path,allLocalesDir));
       }
 
-      @Override
-      public Boolean createTaskModelStructure(Path path,boolean allLocalesDir)
+      public static Boolean createTaskModelStructure(Path path,boolean allLocalesDir)
       {
             try
             {
@@ -108,8 +102,7 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override
-      public Boolean deleteTaskModelStructure(Path path)
+      public static Boolean deleteTaskModelStructure(Path path)
       {
             String okLogMsg = "Se ha borrado correctamente el 'Task'";
             String errLogMsg = "No se ha podido borrar correctamente el 'Task'";
@@ -128,14 +121,13 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
+      @Async(ASYNC_EXECUTOR)
+      public static CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
       {
             return CompletableFuture.supplyAsync(()-> deleteTaskModelStructure(path));
       }
 
-      @Override
-      public Boolean createTaskModelSpecializedStructure(Path path,FileExtension extension)
+      public static Boolean createTaskModelSpecializedStructure(Path path,FileExtension extension)
       {
             try
             {
@@ -158,8 +150,8 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Async(ASYNC_EXECUTOR) @Override
-      public CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
+      @Async(ASYNC_EXECUTOR)
+      public static CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelSpecializedStructure(path,extension));
       }
@@ -243,7 +235,7 @@ public class LabFileWorker implements FileWorker
             log.info("Se va a crear los subdirectorios de " + parentTaskFilesParent);
             Stream.of(FileExtension.values())
                   .map(createPathWithEnumName(parentTaskFilesParent))
-                  .forEach(this::tryToCreateDir);
+                  .forEach(LabFileWorker::tryToCreateDir);
             if (allLocalesDir)
             {
                   createAllHTMLLocaleDir(parentTaskFilesParent);
@@ -255,11 +247,11 @@ public class LabFileWorker implements FileWorker
       {
             log.info("Se dispone a crear los directorios html para cada lenguaje.");
             Path htmlDir = parentTaskFilesParent.resolve(FileExtension.HTML.name());
-            applicationConfigObj.getLocaleRefs()
-                                .stream()
-                                .filter(ref-> ref != LocaleRef.ALL)
-                                .map(createPathWithEnumName(htmlDir))
-                                .forEach(this::tryToCreateDir);
+            activeWorkspace.getLocaleRefs()
+                           .stream()
+                           .filter(ref-> ref != LocaleRef.ALL)
+                           .map(createPathWithEnumName(htmlDir))
+                           .forEach(LabFileWorker::tryToCreateDir);
       }
 
       private boolean copyWithValidation(Path source,Path target,LabFilesValidator validator)

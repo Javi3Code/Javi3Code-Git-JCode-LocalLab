@@ -6,6 +6,7 @@ import java.util.HashSet;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
+import org.jeycode.localab.configmodel.Workspace;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
@@ -46,13 +47,16 @@ public class YMLObjectTemplatesConfig
                                            .imgDir("/imgDirSample")
                                            .docDir("/docDirSample")
                                            .build();
-
             return AppConfigObj.builder()
-                               .workspaces(asList("C://SampleDir","C://OtherSampleWorkspace"))
-                               .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.en_US)))
+                               .workspaces(asList(Workspace.builder()
+                                                           .dirPath("C://SampleDir")
+                                                           .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.en_US)))
+                                                           .build(),
+                                                  Workspace.builder()
+                                                           .dirPath("C://OtherSampleWorkspace")
+                                                           .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.fr_FR)))
+                                                           .build()))
                                .origin(originDir)
-                               .commandsSessionStorage(10)
-                               .age(3600)
                                .build();
       }
 

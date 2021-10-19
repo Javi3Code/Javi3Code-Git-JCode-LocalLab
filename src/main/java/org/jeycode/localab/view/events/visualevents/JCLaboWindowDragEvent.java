@@ -1,4 +1,4 @@
-package org.jeycode.localab.view.events;
+package org.jeycode.localab.view.events.visualevents;
 
 import java.awt.Window;
 import java.awt.event.MouseAdapter;
