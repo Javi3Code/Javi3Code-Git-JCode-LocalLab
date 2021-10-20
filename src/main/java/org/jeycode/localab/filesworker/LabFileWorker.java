@@ -1,6 +1,5 @@
 package org.jeycode.localab.filesworker;
 
-import static org.jeycode.localab.utils.ApplicationContext.activeWorkspace;
 import static org.jeycode.localab.utils.GenericHelper.ASYNC_EXECUTOR;
 import static org.jeycode.localab.utils.GenericHelper.ORIGIN_BACKUP;
 import static org.jeycode.localab.utils.GenericHelper.PARENT_TASKFILES_DIR;
@@ -16,14 +15,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import org.jeycode.localab.applicationcontext.model.ApplicationContext;
 import org.jeycode.localab.utils.LocaleRef;
 import org.jeycode.localab.utils.files.LabFilesStaticHelper;
 import org.jeycode.localab.utils.files.LabFilesStaticHelper.FileExtension;
 import org.jeycode.localab.utils.files.LabFilesValidator;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 import org.springframework.util.FileSystemUtils;
 
-import lombok.experimental.UtilityClass;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -39,18 +40,23 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-@UtilityClass
-public class LabFileWorker
+@Component
+@RequiredArgsConstructor
+public class LabFileWorker implements FileWorker
 {
 
+      private final ApplicationContext applicationContext;
+
+      @Override
       @Async(ASYNC_EXECUTOR)
-      public static CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
+      public CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyFile(source,target));
 
       }
 
-      public static Boolean copyFile(Path source,Path target)
+      @Override
+      public Boolean copyFile(Path source,Path target)
       {
             try
             {
@@ -69,25 +75,29 @@ public class LabFileWorker
             }
       }
 
+      @Override
       @Async(ASYNC_EXECUTOR)
-      public static CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
+      public CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
       {
             return CompletableFuture.supplyAsync(()-> copyDir(source,target));
 
       }
 
-      public static Boolean copyDir(Path source,Path target)
+      @Override
+      public Boolean copyDir(Path source,Path target)
       {
             return copyWithValidation(source,target,LabFilesStaticHelper.allPathsAreDirValidator);
       }
 
+      @Override
       @Async(ASYNC_EXECUTOR)
-      public static CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
+      public CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelStructure(path,allLocalesDir));
       }
 
-      public static Boolean createTaskModelStructure(Path path,boolean allLocalesDir)
+      @Override
+      public Boolean createTaskModelStructure(Path path,boolean allLocalesDir)
       {
             try
             {
@@ -102,7 +112,8 @@ public class LabFileWorker
             }
       }
 
-      public static Boolean deleteTaskModelStructure(Path path)
+      @Override
+      public Boolean deleteTaskModelStructure(Path path)
       {
             String okLogMsg = "Se ha borrado correctamente el 'Task'";
             String errLogMsg = "No se ha podido borrar correctamente el 'Task'";
@@ -121,13 +132,15 @@ public class LabFileWorker
             }
       }
 
+      @Override
       @Async(ASYNC_EXECUTOR)
-      public static CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
+      public CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
       {
             return CompletableFuture.supplyAsync(()-> deleteTaskModelStructure(path));
       }
 
-      public static Boolean createTaskModelSpecializedStructure(Path path,FileExtension extension)
+      @Override
+      public Boolean createTaskModelSpecializedStructure(Path path,FileExtension extension)
       {
             try
             {
@@ -150,8 +163,9 @@ public class LabFileWorker
             }
       }
 
+      @Override
       @Async(ASYNC_EXECUTOR)
-      public static CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
+      public CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelSpecializedStructure(path,extension));
       }
@@ -235,7 +249,7 @@ public class LabFileWorker
             log.info("Se va a crear los subdirectorios de " + parentTaskFilesParent);
             Stream.of(FileExtension.values())
                   .map(createPathWithEnumName(parentTaskFilesParent))
-                  .forEach(LabFileWorker::tryToCreateDir);
+                  .forEach(this::tryToCreateDir);
             if (allLocalesDir)
             {
                   createAllHTMLLocaleDir(parentTaskFilesParent);
@@ -247,11 +261,12 @@ public class LabFileWorker
       {
             log.info("Se dispone a crear los directorios html para cada lenguaje.");
             Path htmlDir = parentTaskFilesParent.resolve(FileExtension.HTML.name());
-            activeWorkspace.getLocaleRefs()
-                           .stream()
-                           .filter(ref-> ref != LocaleRef.ALL)
-                           .map(createPathWithEnumName(htmlDir))
-                           .forEach(LabFileWorker::tryToCreateDir);
+            applicationContext.getActiveWorkspace()
+                              .getLocaleRefs()
+                              .stream()
+                              .filter(ref-> ref != LocaleRef.ALL)
+                              .map(createPathWithEnumName(htmlDir))
+                              .forEach(this::tryToCreateDir);
       }
 
       private boolean copyWithValidation(Path source,Path target,LabFilesValidator validator)

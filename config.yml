@@ -1,11 +1,17 @@
 #Origen del directorio donde se encuentra el repositorio local u origen de los File.
-origin: 
-      repositoryDir:  C:\Users\JAVIER\Desktop\
-      cssDir:
-      jsDir:
-      htmlDir:
-      imgDir:
-      docDir:
+origins: 
+     -  repositoryDir:  C:\Users\JAVIER\Desktop\
+        cssDir:
+        jsDir:
+        htmlDir:
+        imgDir:
+        docDir:
+     -  repositoryDir:  C:\Users\JAVIER\Desktop\loqsea
+        cssDir:
+        jsDir:
+        htmlDir:
+        imgDir:
+        docDir:
 
 #Espacio de trabajo donde se va a trabajar, si no existiera el directorio se crea.
 workspaces:

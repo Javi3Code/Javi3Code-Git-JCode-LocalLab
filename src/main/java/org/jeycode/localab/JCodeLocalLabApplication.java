@@ -1,5 +1,6 @@
 package org.jeycode.localab;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -10,12 +11,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import javax.swing.border.Border;
 
+import org.jeycode.localab.filesworker.FileWorker;
 import org.jeycode.localab.filesworker.LabFileWorker;
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
@@ -56,7 +60,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
       private final ThreadPoolTaskExecutor executor;
-      private final AppPrincipalWindow window;
+      private final FileWorker fileWorker;
 
       private static int index = 0;
 
@@ -97,7 +101,10 @@ public class JCodeLocalLabApplication implements CommandLineRunner
             contentPane.setLayout(null);
             frame.setVisible(true);
             contentPane.add(btn);
+            area.setBorder(BorderFactory.createEtchedBorder());
+            area.setBounds(300,350,1000,1000);
             contentPane.add(area);
+
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       }
 
@@ -135,7 +142,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
                                  Path source = paths.get(num);
                                  Path target = Paths.get("C:\\Users\\JAVIER\\Desktop\\adasd\\")
                                                     .resolve(source.getFileName());
-                                 executor.submit(()-> LabFileWorker.copyFile(source,target));
+                                 executor.submit(()-> fileWorker.copyFile(source,target));
                            });
             executor.destroy();
       }

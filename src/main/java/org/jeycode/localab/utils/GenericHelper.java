@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public final class GenericHelper
 {
-
+      
       public static final String ASYNC_EXECUTOR = "threadPoolTaskExecutor";
 
       /**

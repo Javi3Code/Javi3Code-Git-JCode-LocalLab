@@ -3,15 +3,21 @@ package org.jeycode.localab.config;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import org.jeycode.localab.configmodel.AppConfigObj;
+import org.jeycode.localab.applicationcontext.model.ApplicationContext;
+import org.jeycode.localab.applicationcontext.service.ApplicationContextLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import lombok.RequiredArgsConstructor;
+
 @Configuration
+@RequiredArgsConstructor
 public class GenericUtilsConfig
 {
 
+      private final ApplicationContextLoader applicationContextLoaderImpl;
+      
       @Bean
       public Validator getDefaultValidator()
       {
@@ -19,10 +25,10 @@ public class GenericUtilsConfig
                              .getValidator();
       }
 
-//      @Bean(initMethod = "loadEnumMapValues") @Scope(value = "singleton")
-//      public LabFilesHelper getFilesHelper()
-//      {
-//            return new LabFilesHelper();
-//      } Temporalmente clase de utilidad -- métodos static
+      @Bean @Scope(value = "singleton")
+      public ApplicationContext jclabloApplicationContextObj()
+      {
+            return applicationContextLoaderImpl.getApplicationContextObj();
+      }
 
 }

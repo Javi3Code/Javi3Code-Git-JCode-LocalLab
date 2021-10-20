@@ -56,7 +56,7 @@ public class YMLObjectTemplatesConfig
                                                            .dirPath("C://OtherSampleWorkspace")
                                                            .localeRefs(new HashSet<>(asList(LocaleRef.es_ES,LocaleRef.fr_FR)))
                                                            .build()))
-                               .origin(originDir)
+                               .origins(asList(originDir))
                                .build();
       }
 

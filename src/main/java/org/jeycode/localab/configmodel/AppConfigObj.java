@@ -27,5 +27,5 @@ public class AppConfigObj implements YMLObj
 {
 
       private List<Workspace> workspaces;
-      private OriginDir origin;
+      private List<OriginDir> origins;
 }
