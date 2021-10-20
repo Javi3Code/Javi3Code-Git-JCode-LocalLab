@@ -29,9 +29,6 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 public interface GenericYmlMapper
 {
 
-      String CONFIGMAPPER = "configmapper";
-      String CONCRETETASKFILEMAPPER = "concretetaskfilemapper";
-
       ObjectMapper objMapper = new ObjectMapper(new YAMLFactory());
 
       /**

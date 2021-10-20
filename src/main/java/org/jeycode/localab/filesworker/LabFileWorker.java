@@ -261,7 +261,7 @@ public class LabFileWorker implements FileWorker
       {
             log.info("Se dispone a crear los directorios html para cada lenguaje.");
             Path htmlDir = parentTaskFilesParent.resolve(FileExtension.HTML.name());
-            applicationContext.getActiveWorkspace()
+             applicationContext.getActiveWorkspace()
                               .getLocaleRefs()
                               .stream()
                               .filter(ref-> ref != LocaleRef.ALL)

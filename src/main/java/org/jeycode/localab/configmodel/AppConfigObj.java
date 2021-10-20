@@ -26,6 +26,9 @@ import lombok.NoArgsConstructor;
 public class AppConfigObj implements YMLObj
 {
 
+      private String theme;
+      private int workspace;
+      private int origin;
       private List<Workspace> workspaces;
       private List<OriginDir> origins;
 }

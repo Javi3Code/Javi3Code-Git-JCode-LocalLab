@@ -1,19 +1,13 @@
 package org.jeycode.localab.loader;
 
-import static org.jeycode.localab.loader.GenericYmlMapper.CONCRETETASKFILEMAPPER;
-
 import java.io.IOException;
 
 import org.jeycode.localab.taskmodel.model.TaskFiles;
 import org.jeycode.localab.taskmodel.model.YMLObj;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-
-import lombok.RequiredArgsConstructor;
 
 /**
  * 
@@ -28,9 +22,6 @@ import lombok.RequiredArgsConstructor;
  *
  */
 
-@RequiredArgsConstructor
-@Component(CONCRETETASKFILEMAPPER)
-@Scope("singleton")
 public class ConcreteTaskYmlMapper implements GenericYmlMapper
 {
 

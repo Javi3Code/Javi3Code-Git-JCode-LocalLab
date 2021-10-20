@@ -1,3 +1,8 @@
+theme: FlatGitHubDarkIJTheme
+#Índice de origen y workspace activos, actualizable tanto por GUI como por YML+GUI
+workspace: 0
+origin: 0
+
 #Origen del directorio donde se encuentra el repositorio local u origen de los File.
 origins: 
      -  repositoryDir:  C:\Users\JAVIER\Desktop\

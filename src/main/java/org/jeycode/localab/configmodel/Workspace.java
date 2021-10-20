@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Workspace
 {
-
       private String dirPath;
       private Set<LocaleRef> localeRefs;
 }

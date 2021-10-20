@@ -1,6 +1,5 @@
 package org.jeycode.localab.applicationcontext.model;
 
-import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
 import org.jeycode.localab.configmodel.Workspace;
 
@@ -17,14 +16,13 @@ import lombok.NoArgsConstructor;
  *         3 oct. 2021
  *
  */
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class ApplicationContext
 {
-      private Long id;
-      private AppConfigObj applicationConfigObj;
+
       private OriginDir activeOrigin;
       private Workspace activeWorkspace;
       private String activeFlatTheme;

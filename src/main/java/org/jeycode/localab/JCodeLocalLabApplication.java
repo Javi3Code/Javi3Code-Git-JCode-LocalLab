@@ -1,6 +1,5 @@
 package org.jeycode.localab;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -17,10 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import javax.swing.border.Border;
 
+import org.jeycode.localab.applicationcontext.model.ApplicationContext;
+import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.filesworker.FileWorker;
-import org.jeycode.localab.filesworker.LabFileWorker;
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
 import org.jeycode.localab.taskmodel.err.TaskFieldsException;
@@ -31,7 +30,6 @@ import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
-import org.jeycode.localab.view.component.AppPrincipalWindow;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -55,12 +53,16 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 {
 
       private final YmlObjTemplates templates;
+      private final List<Class<?>> themes;
+      private final AppConfigObj configObj;
+      private final ApplicationContext applicationContext;
       private final ConcreteTaskRepository repo;
       private final ConcreteTaskAccessService service;
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
       private final ThreadPoolTaskExecutor executor;
       private final FileWorker fileWorker;
+   
 
       private static int index = 0;
 
@@ -111,6 +113,9 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       @Override
       public void run(String...args) throws Exception
       {
+            themes.forEach(System.out::println);
+            System.out.println(configObj);
+            System.out.println(applicationContext);
 //            ymlTemplateProof();
 //            executorCopyFileProof();
 

@@ -19,12 +19,12 @@ import lombok.RequiredArgsConstructor;
 public class YmlObjTemplates
 {
 
-      private final AppConfigObj appConfigObj;
+      private final AppConfigObj appConfigObjTemplate;
       private final ConcreteTaskDto concreteTaskObj;
 
       public void exportAppConfigYmlTemplate() throws JsonGenerationException,JsonMappingException,IOException
       {
-            writeYmlFile(new File("sample_config.yml"),appConfigObj);
+            writeYmlFile(new File("config.yml"),appConfigObjTemplate);
 
       }
 

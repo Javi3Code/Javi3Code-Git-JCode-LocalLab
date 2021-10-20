@@ -22,4 +22,5 @@ public final class Views
       public static double MAX_WIDTH = 1920.0;
       public static double MAX_HEIGHT = 1080.0;
       public static final Dimension maxScreenDimension = new Dimension((int)MAX_WIDTH,(int)MAX_HEIGHT);
+
 }

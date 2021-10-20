@@ -7,14 +7,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Predicate;
 
-import org.jeycode.localab.configmodel.AppConfigObj;
-
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public final class GenericHelper
 {
-      
+      public static final String CONFIG_MAPPER = "configYmlMapper";
+      public static final String CONCRETETASKFILE_MAPPER = "concreteTaskYmlMapper";
       public static final String ASYNC_EXECUTOR = "threadPoolTaskExecutor";
 
       /**
@@ -26,7 +25,7 @@ public final class GenericHelper
       public static final String Generic_SLASH = File.separator;
       public static final String Rigth_SLASH = "/";
       public static final String Left_SALSH = "\\";
-      public static final String SUFFIX_CONFIG_YML = "_config.yml";
+      public static final String CONFIG_YML = "jc_config.yml";
 
       /*
        * Dir Task Model Structure
