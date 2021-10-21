@@ -20,12 +20,12 @@ origins:
 
 #Espacio de trabajo donde se va a trabajar, si no existiera el directorio se crea.
 workspaces:
-        -  path: C:\Users\JAVIER\Desktop\dir-loc
+        -  dirPath: C:\Users\JAVIER\Desktop\dir-loc
            localeRefs:
             - es_ES
             - en_US
             - eu_ES   
-        - path: C:\Users\JAVIER\Desktop\dir-loc2
+        - dirPath: C:\Users\JAVIER\Desktop\dir-loc2
           localeRefs:
             - es_ES
             - en_US

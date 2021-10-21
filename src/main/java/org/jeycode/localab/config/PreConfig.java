@@ -1,16 +1,12 @@
 package org.jeycode.localab.config;
 
 import static java.util.Arrays.asList;
-import static org.jeycode.localab.utils.GenericHelper.CONCRETETASKFILE_MAPPER;
-import static org.jeycode.localab.utils.GenericHelper.CONFIG_MAPPER;
 
 import java.util.HashSet;
 
 import org.jeycode.localab.configmodel.AppConfigObj;
 import org.jeycode.localab.configmodel.OriginDir;
 import org.jeycode.localab.configmodel.Workspace;
-import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
-import org.jeycode.localab.loader.ConfigYmlMapper;
 import org.jeycode.localab.taskmodel.model.dto.ConcreteTaskDto;
 import org.jeycode.localab.taskmodel.model.dto.TaskFilesDto;
 import org.jeycode.localab.taskmodel.model.filemodeldto.CssFileDto;
@@ -23,38 +19,11 @@ import org.jeycode.localab.utils.LocaleRef;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-
-/**
- * 
- * En esta clase establecemos dos beans usados para la creación de los YML que
- * serviran de plantilla.
- * 
- * 
- * @author Javier Pérez Alonso
- *
- *         22 jul. 2021
- *
- */
 
 @Configuration
-public class YMLObjectTemplatesConfig
+public class PreConfig
 {
-
-      @Bean(CONFIG_MAPPER) @Scope("singleton") @Order(Ordered.HIGHEST_PRECEDENCE)
-      public ConfigYmlMapper configYmlMapper()
-      {
-            return new ConfigYmlMapper();
-      }
-
-      @Bean(CONCRETETASKFILE_MAPPER) @Scope("singleton")
-      public ConcreteTaskYmlMapper concreteTaskYmlMapper()
-      {
-            return new ConcreteTaskYmlMapper();
-      }
-
-      @Bean(name = "appConfigObjTemplate") @Scope("singleton") @Order(value = Ordered.HIGHEST_PRECEDENCE)
+      @Bean(name = "appConfigObjTemplate") @Scope("singleton")
       public AppConfigObj appConfigObjTemplate()
       {
             OriginDir originDir = OriginDir.builder()
@@ -117,5 +86,4 @@ public class YMLObjectTemplatesConfig
             return new ConcreteTaskDto("WP-SampleTask",
                                        "Este fichero es un ejemplo de como debe ser un task.yml, puede y debe reutilizarse.",taskfile);
       }
-
 }

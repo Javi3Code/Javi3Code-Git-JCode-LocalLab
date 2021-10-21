@@ -52,7 +52,7 @@ import lombok.extern.slf4j.Slf4j;
 public class JCodeLocalLabApplication implements CommandLineRunner
 {
 
-      private final YmlObjTemplates templates;
+      private final YmlObjTemplates ymlObjTemplates;
       private final List<Class<?>> themes;
       private final AppConfigObj configObj;
       private final ApplicationContext applicationContext;
@@ -127,8 +127,8 @@ public class JCodeLocalLabApplication implements CommandLineRunner
 
       private void ymlTemplateProof() throws JsonGenerationException,JsonMappingException,IOException,JsonParseException
       {
-            templates.exportAppConfigYmlTemplate();
-            templates.exportConcreteTaskYmlTemplate();
+            ymlObjTemplates.exportAppConfigYmlTemplate();
+            ymlObjTemplates.exportConcreteTaskYmlTemplate();
             ConcreteTaskYmlMapper mapper = new ConcreteTaskYmlMapper();
             ConcreteTaskDto concTask;
             concTask = mapper.loadYmlFile("concretetasksample.yml");// System.out.println(concTask);

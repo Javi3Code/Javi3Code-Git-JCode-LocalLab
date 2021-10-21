@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
+@Component("ymlObjectTemplates")
 @RequiredArgsConstructor
 public class YmlObjTemplates
 {
