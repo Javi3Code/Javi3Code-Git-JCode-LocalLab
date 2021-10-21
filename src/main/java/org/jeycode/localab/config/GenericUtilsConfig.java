@@ -19,7 +19,6 @@ import org.jeycode.localab.utils.GenericHelper;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

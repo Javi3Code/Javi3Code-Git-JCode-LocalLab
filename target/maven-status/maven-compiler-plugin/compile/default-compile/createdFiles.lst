@@ -27,14 +27,14 @@ org\jeycode\localab\taskmodel\model\dto\ConcreteTaskDtoToShow$ConcreteTaskDtoToS
 org\jeycode\localab\view\events\visualevents\SlideEvent$1.class
 org\jeycode\localab\taskmodel\model\filemodeldto\JsFileDto$JsFileDtoBuilder.class
 org\jeycode\localab\taskmodel\model\mapper\TaskFilesMapperImpl.class
+org\jeycode\localab\applicationcontext\model\ApplicationContext$ApplicationContextBuilder.class
 org\jeycode\localab\configmodel\OriginDir.class
 org\jeycode\localab\taskmodel\model\TaskFiles.class
 org\jeycode\localab\view\component\panel\CommandMenuPanel.class
 org\jeycode\localab\taskmodel\model\mapper\HtmlMapperImpl.class
 org\jeycode\localab\fieldsvalidator\FieldValidators.class
-org\jeycode\localab\utils\ApplicationContext.class
+org\jeycode\localab\config\PreConfig.class
 org\jeycode\localab\taskmodel\model\mapper\HtmlMapper.class
-org\jeycode\localab\config\YMLObjectTemplatesConfig.class
 org\jeycode\localab\taskmodel\err\TaskFieldsException.class
 org\jeycode\localab\taskmodel\model\mapper\DocFileMapperImpl.class
 org\jeycode\localab\taskmodel\model\filemodel\Html.class
@@ -46,6 +46,7 @@ org\jeycode\localab\taskmodel\model\mapper\HtmlFilesMapper.class
 org\jeycode\localab\view\events\visualevents\JCLaboWindowDragEvent.class
 org\jeycode\localab\taskmodel\model\filemodeldto\CssFileDto$CssFileDtoBuilder.class
 org\jeycode\localab\taskmodel\model\filemodeldto\CssFileDto$CssFileDtoBuilderImpl.class
+org\jeycode\localab\applicationcontext\model\ApplicationContext.class
 org\jeycode\localab\taskmodel\model\filemodeldto\HtmlFileDto.class
 org\jeycode\localab\view\events\visualevents\JC_Axis.class
 org\jeycode\localab\taskmodel\model\filemodel\CssFile.class
@@ -67,7 +68,6 @@ org\jeycode\localab\filesworker\FileWorker.class
 org\jeycode\localab\filesworker\LabFileWorker.class
 org\jeycode\localab\taskmodel\model\filemodeldto\JsFileDto$1.class
 org\jeycode\localab\taskmodel\model\dto\ConcreteTaskDto$ConcreteTaskDtoBuilder.class
-org\jeycode\localab\commandmodel\executable\Executable.class
 org\jeycode\localab\configmodel\AppConfigObj$AppConfigObjBuilder.class
 org\jeycode\localab\taskmodel\model\filemodeldto\GenericFrontFileDto$GenericFrontFileDtoBuilder.class
 org\jeycode\localab\loader\ConfigYmlMapper.class
@@ -82,7 +82,6 @@ org\jeycode\localab\taskmodel\model\dto\ConcreteTaskDto$1.class
 org\jeycode\localab\taskmodel\model\mapper\CssFileMapper.class
 org\jeycode\localab\utils\files\PathFormatter.class
 org\jeycode\localab\taskmodel\service\ConcreteTaskAccessService.class
-org\jeycode\localab\taskmodel\err\CommandException.class
 org\jeycode\localab\view\events\visualevents\JCLaboWindowDragEvent$2.class
 org\jeycode\localab\taskmodel\model\mapper\DocFileMapper.class
 org\jeycode\localab\taskmodel\model\mapper\JsFileMapperImpl.class

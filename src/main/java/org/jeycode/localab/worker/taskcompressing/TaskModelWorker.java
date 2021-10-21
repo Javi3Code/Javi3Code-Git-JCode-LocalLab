@@ -1,21 +1,11 @@
-package org.jeycode.localab.filesworker;
+package org.jeycode.localab.worker.taskcompressing;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import org.jeycode.localab.utils.files.LabFilesStaticHelper.FileExtension;
 
-/**
- * 
- * Interface que determina el contrato a firmar por las clases que se encargarán
- * de las operaciones pesadas con archivos o directorios.
- * 
- * @author Javier Pérez Alonso
- *
- *         5 ago. 2021
- *
- */
-public interface FileWorker 
+public interface TaskModelWorker
 {
 
       /**
@@ -33,16 +23,4 @@ public interface FileWorker
       Boolean createTaskModelSpecializedStructure(Path path,FileExtension extension);
 
       CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension);
-
-      Boolean deleteTaskModelStructure(Path path);
-
-      CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path);
-
-      Boolean copyFile(Path source,Path target);
-
-      CompletableFuture<Boolean> copyFileAsync(Path source,Path target);
-
-      Boolean copyDir(Path source,Path target);
-
-      CompletableFuture<Boolean> copyDirAsync(Path source,Path target);
 }

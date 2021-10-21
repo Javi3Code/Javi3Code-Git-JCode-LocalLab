@@ -12,6 +12,9 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public final class GenericHelper
 {
+
+      public static final String GZIP_TEMP_DIR_LOCATION_VAR = "${gzip-compressor-temp-dir}";
+
       public static final String CONFIG_MAPPER = "configYmlMapper";
       public static final String CONCRETETASKFILE_MAPPER = "concreteTaskYmlMapper";
       public static final String ASYNC_EXECUTOR = "threadPoolTaskExecutor";

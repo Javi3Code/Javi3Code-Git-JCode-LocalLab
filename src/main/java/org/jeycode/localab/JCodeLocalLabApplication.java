@@ -19,7 +19,6 @@ import javax.swing.WindowConstants;
 
 import org.jeycode.localab.applicationcontext.model.ApplicationContext;
 import org.jeycode.localab.configmodel.AppConfigObj;
-import org.jeycode.localab.filesworker.FileWorker;
 import org.jeycode.localab.loader.ConcreteTaskYmlMapper;
 import org.jeycode.localab.taskmodel.controller.ConcreteTaskController;
 import org.jeycode.localab.taskmodel.err.TaskFieldsException;
@@ -30,6 +29,7 @@ import org.jeycode.localab.taskmodel.model.mapper.ConcreteTaskMapper;
 import org.jeycode.localab.taskmodel.repository.ConcreteTaskRepository;
 import org.jeycode.localab.taskmodel.service.ConcreteTaskAccessService;
 import org.jeycode.localab.utils.ymltemplate.YmlObjTemplates;
+import org.jeycode.localab.worker.taskcopying.CopyFileWorker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -61,7 +61,7 @@ public class JCodeLocalLabApplication implements CommandLineRunner
       private final ConcreteTaskController controller;
       private final ConcreteTaskMapper mapp;
       private final ThreadPoolTaskExecutor executor;
-      private final FileWorker fileWorker;
+      private final CopyFileWorker fileWorker;
    
 
       private static int index = 0;

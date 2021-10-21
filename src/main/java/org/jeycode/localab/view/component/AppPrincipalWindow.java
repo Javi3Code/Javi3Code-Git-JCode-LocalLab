@@ -13,9 +13,7 @@ import javax.swing.JMenu;
 import javax.swing.WindowConstants;
 
 import org.jeycode.localab.view.component.panel.PrincipalPanel;
-import org.jeycode.localab.view.events.visualevents.JCLaboComponentSlideEvent;
 import org.jeycode.localab.view.events.visualevents.JCLaboWindowDragEvent;
-import org.jeycode.localab.view.events.visualevents.JC_Axis;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +42,6 @@ public final class AppPrincipalWindow extends JFrame
       private JMenu menu;
       @Getter
       private final PrincipalPanel panel;
-      private JCLaboComponentSlideEvent slideEvent;
       @Getter
       @Setter
       private boolean canClose;
@@ -59,7 +56,6 @@ public final class AppPrincipalWindow extends JFrame
       {
             setInitialBounds();
             putDragEvent();
-            slideEvent = new JCLaboComponentSlideEvent(this,this.getX(),JC_Axis.X_AXIS,2000,null,null,1.0f);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             tempElements();

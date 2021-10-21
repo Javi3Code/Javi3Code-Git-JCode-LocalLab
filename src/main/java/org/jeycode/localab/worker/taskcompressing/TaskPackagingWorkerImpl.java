@@ -1,99 +1,45 @@
-package org.jeycode.localab.filesworker;
+package org.jeycode.localab.worker.taskcompressing;
 
 import static org.jeycode.localab.utils.GenericHelper.ASYNC_EXECUTOR;
 import static org.jeycode.localab.utils.GenericHelper.ORIGIN_BACKUP;
 import static org.jeycode.localab.utils.GenericHelper.PARENT_TASKFILES_DIR;
 import static org.jeycode.localab.utils.GenericHelper.TASK_BACKUP;
 import static org.jeycode.localab.utils.files.LabFilesStaticHelper.checkIfExistsThis;
-import static org.jeycode.localab.utils.files.LabFilesStaticHelper.reentrantLock;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.jeycode.localab.applicationcontext.model.ApplicationContext;
 import org.jeycode.localab.utils.LocaleRef;
-import org.jeycode.localab.utils.files.LabFilesStaticHelper;
 import org.jeycode.localab.utils.files.LabFilesStaticHelper.FileExtension;
-import org.jeycode.localab.utils.files.LabFilesValidator;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
-import org.springframework.util.FileSystemUtils;
+import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * 
- * Clase que se encarga de los trabajos pesados con archivos o directorios.
- * 
- * @see FileWorker
- * 
- * 
- * @author Javier Pérez Alonso
- *
- *         5 ago. 2021
- *
- */
 @Slf4j
-@Component
+@Service
 @RequiredArgsConstructor
-public class LabFileWorker implements FileWorker
+public class TaskPackagingWorkerImpl implements TaskModelWorker
 {
 
       private final ApplicationContext applicationContext;
 
-      @Override
-      @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> copyFileAsync(Path source,Path target)
-      {
-            return CompletableFuture.supplyAsync(()-> copyFile(source,target));
-
-      }
-
-      @Override
-      public Boolean copyFile(Path source,Path target)
-      {
-            try
-            {
-
-                  Path fileParentDirPath = target.getParent();
-                  checkIfExistParentDirIfNotCreateDirectoriesSync(fileParentDirPath);
-                  Files.copy(source,target,StandardCopyOption.REPLACE_EXISTING);
-                  log.info("Se ha copiado el archivo [ " + source + " ] en [ " + target.getParent() + " ]");
-                  return true;
-
-            }
-            catch (IOException ex)
-            {
-                  log.error("Problemas al intentar copiar un archivo..." + "\n" + ex.getMessage());
-                  return false;
-            }
-      }
-
-      @Override
-      @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> copyDirAsync(Path source,Path target)
-      {
-            return CompletableFuture.supplyAsync(()-> copyDir(source,target));
-
-      }
-
-      @Override
-      public Boolean copyDir(Path source,Path target)
-      {
-            return copyWithValidation(source,target,LabFilesStaticHelper.allPathsAreDirValidator);
-      }
-
-      @Override
-      @Async(ASYNC_EXECUTOR)
+      @Override @Async(ASYNC_EXECUTOR)
       public CompletableFuture<Boolean> createTaskModelStructureAsync(Path path,boolean allLocalesDir)
       {
             return CompletableFuture.supplyAsync(()-> createTaskModelStructure(path,allLocalesDir));
+      }
+
+      @Override @Async(ASYNC_EXECUTOR)
+      public CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
+      {
+            return CompletableFuture.supplyAsync(()-> createTaskModelSpecializedStructure(path,extension));
       }
 
       @Override
@@ -110,33 +56,6 @@ public class LabFileWorker implements FileWorker
             {
                   return false;
             }
-      }
-
-      @Override
-      public Boolean deleteTaskModelStructure(Path path)
-      {
-            String okLogMsg = "Se ha borrado correctamente el 'Task'";
-            String errLogMsg = "No se ha podido borrar correctamente el 'Task'";
-            try
-            {
-                  log.info("Se procede a borrar el TaskModelStructure.");
-                  boolean deleteRecursively = FileSystemUtils.deleteRecursively(path);
-                  String logMsg = deleteRecursively ? okLogMsg : errLogMsg;
-                  log.info(logMsg);
-                  return deleteRecursively;
-            }
-            catch (IOException ex)
-            {
-                  log.error(errLogMsg);
-                  return false;
-            }
-      }
-
-      @Override
-      @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> deleteTaskModelStructureAsync(Path path)
-      {
-            return CompletableFuture.supplyAsync(()-> deleteTaskModelStructure(path));
       }
 
       @Override
@@ -163,18 +82,6 @@ public class LabFileWorker implements FileWorker
             }
       }
 
-      @Override
-      @Async(ASYNC_EXECUTOR)
-      public CompletableFuture<Boolean> createTaskModelSpecializedStructureAsync(Path path,FileExtension extension)
-      {
-            return CompletableFuture.supplyAsync(()-> createTaskModelSpecializedStructure(path,extension));
-      }
-
-      /*
-       * Private Methods
-       * ------------------------------------------------------------------
-       */
-
       private void createParentTaskDirIfNotExists(Path path) throws IOException
       {
             if (!checkIfExistsThis(path))
@@ -183,27 +90,6 @@ public class LabFileWorker implements FileWorker
                   Files.createDirectories(path);
                   log.info("Se ha creado el directorio padre donde crear el TaskModelStructure.");
             }
-      }
-
-      private void checkIfExistParentDirIfNotCreateDirectoriesSync(Path fileParentDirPath) throws IOException
-      {
-            try
-            {
-                  reentrantLock.lock();
-                  log.info("Se ha bloqueado el recurso para checkear paths en paralelo");
-                  if (!checkIfExistsThis(fileParentDirPath))
-                  {
-                        log.info("El directorio donde se quiere copiar el archivo no existe, es posible que algún directorio padre de este tampoco, nos aseguramos de crear todos..."
-                                                + " --- dir[ " + fileParentDirPath + " ]");
-                        Files.createDirectories(fileParentDirPath);
-                  }
-            }
-            finally
-            {
-                  log.info("Se ha finalizado la operación de checkear el path y se procede al desbloqueo");
-                  reentrantLock.unlock();
-            }
-
       }
 
       private boolean tryToGenerateTaskModelStructure(Path path,boolean allLocalesDir)
@@ -237,13 +123,6 @@ public class LabFileWorker implements FileWorker
             return parentTaskFilesParent;
       }
 
-      private Path createFileParentDir(Path path) throws IOException
-      {
-            Path parentTaskFilesParent = path.resolve(PARENT_TASKFILES_DIR);
-            Files.createDirectory(parentTaskFilesParent);
-            return parentTaskFilesParent;
-      }
-
       private void tryToCreateTaskFilesSubDir(Path parentTaskFilesParent,boolean allLocalesDir)
       {
             log.info("Se va a crear los subdirectorios de " + parentTaskFilesParent);
@@ -257,37 +136,23 @@ public class LabFileWorker implements FileWorker
 
       }
 
+      private Path createFileParentDir(Path path) throws IOException
+      {
+            Path parentTaskFilesParent = path.resolve(PARENT_TASKFILES_DIR);
+            Files.createDirectory(parentTaskFilesParent);
+            return parentTaskFilesParent;
+      }
+
       private void createAllHTMLLocaleDir(Path parentTaskFilesParent)
       {
             log.info("Se dispone a crear los directorios html para cada lenguaje.");
             Path htmlDir = parentTaskFilesParent.resolve(FileExtension.HTML.name());
-             applicationContext.getActiveWorkspace()
+            applicationContext.getActiveWorkspace()
                               .getLocaleRefs()
                               .stream()
                               .filter(ref-> ref != LocaleRef.ALL)
                               .map(createPathWithEnumName(htmlDir))
                               .forEach(this::tryToCreateDir);
-      }
-
-      private boolean copyWithValidation(Path source,Path target,LabFilesValidator validator)
-      {
-            try
-            {
-                  boolean areValidPath = validator.validate(source,target);
-                  if (areValidPath)
-                  {
-                        log.info("Se han validado los Path y se procede a realizar copias.");
-                        FileSystemUtils.copyRecursively(source,target);
-                        log.info("Se han realizado las copias pertinentes.");
-                        return true;
-                  }
-                  throw new IOException("No son paths válidos para realizar la copia.");
-            }
-            catch (IOException ex)
-            {
-                  log.error("Ha ocurrido un error en la operación de copia con validación. " + ex.getMessage());
-                  return false;
-            }
       }
 
       private Function<Enum<?>,? extends Path> createPathWithEnumName(Path parentTaskFilesParent)
